@@ -14,3 +14,5 @@ public class Action : Block
         return;
     }
 }
+// Sollen Actions nur auf bestimmte Dronen angewandt werden (aka FlyActions & DriveActions?)
+// Oder sollen spezifische Actions mit go.GetComponent<Executor>() bestimmt werden.
