@@ -4,17 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Process : MonoBehaviour
+public class Process
 {
     public Action currentAction { get; private set; }
 
-    List<Block> blocks;
+    List<Block> blocks = new List<Block>();
     int currentBlock = 0;
 
     public void compute()
     {
-        if(currentAction && !currentAction.checkDone()) 
+        if(currentAction != null && !currentAction.checkDone()) 
             return ;
+
+        currentBlock++;
+        if (blocks.Count <= currentBlock) resetIteration();
 
         switch(blocks[currentBlock])
         {
@@ -51,6 +54,10 @@ public class Process : MonoBehaviour
         currentBlock = 0;
     }
 
+    public void addBlock(Block block)
+    {
+        blocks.Add(block);
+    }
 
 
 

@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class Action : Block
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool checkDone()
     {
         return true;
+    }
+
+    public virtual void act(GameObject go)
+    {
+        return;
     }
 }

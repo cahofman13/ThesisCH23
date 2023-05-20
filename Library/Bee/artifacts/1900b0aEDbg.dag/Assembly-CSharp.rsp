@@ -349,6 +349,8 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Routinen/Action.cs"
+"Assets/Scripts/Routinen/Actions/MoveForward.cs"
+"Assets/Scripts/Routinen/Actions/TurnRight.cs"
 "Assets/Scripts/Routinen/Block.cs"
 "Assets/Scripts/Routinen/Control.cs"
 "Assets/Scripts/Routinen/Executor.cs"

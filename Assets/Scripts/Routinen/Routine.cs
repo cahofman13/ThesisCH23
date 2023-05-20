@@ -12,7 +12,10 @@ public class Routine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        process = new Process();
+        for(int i = 0; i < 100; i++)
+            process.addBlock(new MoveForward());
+        process.addBlock(new TurnRight());
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class Routine : MonoBehaviour
         } catch (Exception e) {
             Debug.LogError(e);
         }
+        action.act(gameObject);
     }
 }
 
