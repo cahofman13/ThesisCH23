@@ -56,11 +56,13 @@
     <Analyzer Include="F:\Programming\Visual Studio\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Control.cs" />
     <Compile Include="Assets\Scripts\Routinen\Process.cs" />
     <Compile Include="Assets\Scripts\Routinen\Block.cs" />
     <Compile Include="Assets\Scripts\Routinen\Action.cs" />
-    <Compile Include="Assets\Scripts\Routinen\Control.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Operation.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Executor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

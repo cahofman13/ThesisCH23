@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,17 +28,14 @@ public class Routine : MonoBehaviour
 
     private void actProcess()
     {
+        process.compute();
+
         Action action = null;
         try
         {
-            action = process.compute();
+            action = process.currentAction;
         } catch (Exception e) {
-            UnityEngine.Debug.LogError(e);
-        }
-
-        if (action) 
-        {
-
+            Debug.LogError(e);
         }
     }
 }
