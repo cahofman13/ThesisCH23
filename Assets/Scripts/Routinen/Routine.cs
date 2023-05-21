@@ -13,8 +13,14 @@ public class Routine : MonoBehaviour
     void Start()
     {
         process = new Process();
-        for(int i = 0; i < 100; i++)
-            process.addBlock(new MoveForward());
+        Process forProcess = new Process();
+        forProcess.addBlock(new MoveForward());
+        ForBlock forBlock = new ForBlock();
+        forBlock.process = forProcess;
+        forBlock.executionTarget = 100;
+        process.addBlock(forBlock);
+        //for (int i = 0; i < 100; i++)
+        //    process.addBlock(new MoveForward());
         process.addBlock(new TurnRight());
     }
 

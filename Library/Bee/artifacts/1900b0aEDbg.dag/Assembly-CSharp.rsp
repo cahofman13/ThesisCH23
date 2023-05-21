@@ -353,6 +353,7 @@
 "Assets/Scripts/Routinen/Actions/TurnRight.cs"
 "Assets/Scripts/Routinen/Block.cs"
 "Assets/Scripts/Routinen/Control.cs"
+"Assets/Scripts/Routinen/Controls/ForBlock.cs"
 "Assets/Scripts/Routinen/Executor.cs"
 "Assets/Scripts/Routinen/Operation.cs"
 "Assets/Scripts/Routinen/Process.cs"

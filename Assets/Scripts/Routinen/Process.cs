@@ -11,13 +11,10 @@ public class Process
     List<Block> blocks = new List<Block>();
     int currentBlock = 0;
 
-    public void compute()
+    public bool compute()
     {
         if(currentAction != null && !currentAction.checkDone()) 
-            return ;
-
-        currentBlock++;
-        if (blocks.Count <= currentBlock) resetIteration();
+            return false;
 
         switch(blocks[currentBlock])
         {
@@ -27,6 +24,14 @@ public class Process
 
             default: break;
         }
+
+        if (blocks.Count <= currentBlock)
+        {
+            resetIteration();
+            return true;
+        }
+
+        return false;
     }
 
     private void computeAction()
@@ -37,6 +42,8 @@ public class Process
         } catch (Exception e) {
             Debug.LogError("Encountered Error while trying to read Action, block may not be an Action:\n" + e);
         }
+
+        currentBlock++;
     }
 
     private void computeOperation()
@@ -46,7 +53,9 @@ public class Process
 
     private void computeControl()
     {
-
+        (bool, Action) tFinishedAction = ((Control)blocks[currentBlock]).appoint();
+        if(tFinishedAction.Item1) currentBlock++;
+        currentAction = tFinishedAction.Item2;
     }
 
     public void resetIteration()

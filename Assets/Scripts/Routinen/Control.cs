@@ -1,18 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Control : Block
 {
-    // Start is called before the first frame update
-    void Start()
+    internal bool finished = false;
+    internal Action currentAction = new Action();
+
+    /// <summary>
+    /// delegates process
+    /// </summary>
+    /// <param name="go"></param>
+    /// <returns>bool: IsControlFinished</returns>
+    public (bool, Action) appoint()
     {
-        
+        calculate();
+        if (!finished)
+        {
+            return (false, currentAction);
+        }
+        else
+        {
+            reset();
+            return (true, currentAction);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    internal virtual void calculate()
     {
-        
+        finished = true;
+    }
+
+    internal virtual void reset()
+    {
+        finished = false;
+        currentAction = new Action();
     }
 }
