@@ -13,9 +13,9 @@ public class Control : Block
     /// </summary>
     /// <param name="go"></param>
     /// <returns>bool: IsControlFinished</returns>
-    public (bool, Action) appoint()
+    public (bool, Action) appoint(ref Storage storage)
     {
-        calculate();
+        calculate(ref storage);
         if (!finished)
         {
             return (false, currentAction);
@@ -27,7 +27,7 @@ public class Control : Block
         }
     }
 
-    internal virtual void calculate()
+    internal virtual void calculate(ref Storage storage)
     {
         finished = true;
     }

@@ -8,7 +8,7 @@ public class ForBlock : Control
     public int executionTarget = 10;
     int executionCount = 0;
 
-    internal override void calculate()
+    internal override void calculate(ref Storage storage)
     {
         if(executionCount >= executionTarget)
         {
@@ -16,7 +16,7 @@ public class ForBlock : Control
             return;
         }
 
-        if(process.compute()) executionCount++;
+        if(process.compute(ref storage)) executionCount++;
         currentAction = process.currentAction;
     }
 

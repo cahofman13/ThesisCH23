@@ -11,7 +11,8 @@ public class Process
     List<Block> blocks = new List<Block>();
     int currentBlock = 0;
 
-    public bool compute()
+
+    public bool compute(ref Storage storage)
     {
         if(currentAction != null && !currentAction.checkDone()) 
             return false;
@@ -19,8 +20,8 @@ public class Process
         switch(blocks[currentBlock])
         {
             case Action: computeAction(); break;
-            case Operation: computeOperation(); break;
-            case Control: computeControl(); break;
+            case Operation: computeOperation(ref storage); break;
+            case Control: computeControl(ref storage); break;
 
             default: break;
         }
@@ -46,14 +47,14 @@ public class Process
         currentBlock++;
     }
 
-    private void computeOperation()
+    private void computeOperation(ref Storage storage)
     {
 
     }
 
-    private void computeControl()
+    private void computeControl(ref Storage storage)
     {
-        (bool, Action) tFinishedAction = ((Control)blocks[currentBlock]).appoint();
+        (bool, Action) tFinishedAction = ((Control)blocks[currentBlock]).appoint(ref storage);
         if(tFinishedAction.Item1) currentBlock++;
         currentAction = tFinishedAction.Item2;
     }

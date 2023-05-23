@@ -63,7 +63,9 @@
     <Compile Include="Assets\Scripts\Routinen\Block.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Routinen\Action.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Storage.cs" />
     <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Condition.cs" />
     <Compile Include="Assets\Scripts\Routinen\Executor.cs" />
     <Compile Include="Assets\Scripts\Routinen\Controls\ForBlock.cs" />
   </ItemGroup>

@@ -8,6 +8,8 @@ public class Routine : MonoBehaviour
 {
     bool paused = false;
     Process process;
+    Storage storage = new Storage();
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,7 @@ public class Routine : MonoBehaviour
 
     private void actProcess()
     {
-        process.compute();
+        process.compute(ref storage);
 
         Action action = null;
         try
