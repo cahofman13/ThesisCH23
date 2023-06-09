@@ -49,7 +49,9 @@ public class Process
 
     private void computeOperation(ref Storage storage)
     {
-
+        ((Operation)blocks[currentBlock]).calculate(ref storage);
+        currentAction = new Action();
+        currentBlock++;
     }
 
     private void computeControl(ref Storage storage)

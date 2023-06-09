@@ -1,18 +1,33 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Storage : MonoBehaviour
+
+public class Storage
 {
-    // Start is called before the first frame update
-    void Start()
+    //<type ?>
+    Dictionary<string, Object> list = new Dictionary<string, Object>();
+
+    public void writeValue(string name, Object obj)
     {
-        
+        if(list.ContainsKey(name))
+        {
+            list.Remove(name);
+        }
+        list.Add(name, obj);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool readValue(string name, out Object value)
     {
-        
+        if (list.TryGetValue(name, out Object val))
+        {
+            value = val;
+            return true;
+        }
+        else
+        {
+            value = null;
+            return false;
+        }
     }
+
 }
