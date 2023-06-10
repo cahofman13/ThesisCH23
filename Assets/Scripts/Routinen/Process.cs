@@ -14,6 +14,8 @@ public class Process
 
     public bool compute(ref Storage storage)
     {
+        if (blocks.Count == 0) return true;
+
         if(currentAction != null && !currentAction.checkDone()) 
             return false;
 

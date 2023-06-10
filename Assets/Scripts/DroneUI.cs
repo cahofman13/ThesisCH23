@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class DroneUI : MonoBehaviour
 {
-    Process process = null;
+    Process process;  //useless???
 
     public GameObject owner;
-    Routine ownerRoutine;
+    Routine ownerRoutine;  //useless???
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +28,4 @@ public class DroneUI : MonoBehaviour
         transform.LookAt(this.transform.position - this.GetComponent<Canvas>().worldCamera.transform.position);
     }
 
-    void CommitProcess()
-    {
-        ownerRoutine.process = process;
-    }
 }

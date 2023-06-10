@@ -98,20 +98,6 @@ public class Routine : MonoBehaviour
         if (!process.IsUnityNull() && !paused) actProcess();
     }
 
-    private void actProcess()
-    {
-        process.compute(ref storage);
-
-        Action action = null;
-        try
-        {
-            action = process.currentAction;
-        } catch (Exception e) {
-            Debug.LogError(e);
-        }
-        action.act(gameObject);
-    }
-
     //Auto-Updating Variables
     private void updateStorage()
     {
@@ -120,6 +106,32 @@ public class Routine : MonoBehaviour
         storage.writeValue("posZ", transform.position.z);
 
     }
+
+    private void actProcess()
+    {
+        process.compute(ref storage);
+
+        try
+        {
+            process.currentAction.act(gameObject);
+        } catch (NullReferenceException) {
+            //Debug.Log("NoActionTaken");
+        }
+    }
+
+    public void setProcess(Process proc)
+    {
+        storage = new Storage();  //??? KEEP HERE ???
+        process = proc;
+    }
+
+
+    public void togglePaused()
+    {
+        paused = !paused;
+    }
+
+
 }
 
 
