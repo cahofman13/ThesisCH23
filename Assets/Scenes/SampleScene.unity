@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  droppedBlock: {fileID: 0}
 --- !u!114 &311762349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  droppedBlock: {fileID: 0}
 --- !u!114 &678514012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,6 +2286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  droppedBlock: {fileID: 0}
 --- !u!114 &2136189168
 MonoBehaviour:
   m_ObjectHideFlags: 0

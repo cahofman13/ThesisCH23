@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Routinen\Control.cs" />
     <Compile Include="Assets\Scripts\Routinen\Controls\IfBlock.cs" />
     <Compile Include="Assets\Scripts\Routinen\Process.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\TurnRight.cs" />
     <Compile Include="Assets\Scripts\BlockUI.cs" />
     <Compile Include="Assets\Scripts\Routinen\Operation.cs" />
@@ -66,18 +67,17 @@
     <Compile Include="Assets\Scripts\FreeCam.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Routinen\Ops\Term.cs" />
+    <Compile Include="Assets\Scripts\DeleteSlot.cs" />
     <Compile Include="Assets\Scripts\Routinen\Action.cs" />
     <Compile Include="Assets\Scripts\Routinen\Storage.cs" />
     <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
+    <Compile Include="Assets\Scripts\RoutineUI.cs" />
     <Compile Include="Assets\Scripts\DroneUI.cs" />
     <Compile Include="Assets\Scripts\Routinen\Ops\Condition.cs" />
     <Compile Include="Assets\Scripts\Routinen\Executor.cs" />
     <Compile Include="Assets\Scripts\Routinen\Controls\ForBlock.cs" />
-    <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
-    <Compile Include="Assets\Scripts\RoutineUI.cs" />
-    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\BlockSlot.cs" />
-    <Compile Include="Assets\Scripts\DeleteSlot.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

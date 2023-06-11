@@ -14,12 +14,13 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
     //Dragging
     bool firstDrop = true;
     bool dropped = false;
+    //Anchor
     Vector2 startPoint;
+    public BlockSlot slot = null;
 
     //Identifier that determines the created block
     public string blockName = "";
 
-    BlockSlot slot = null;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +71,9 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 
     public void registerDrop(BlockSlot newSlot)
     {
+        //noChange!
+        if (newSlot == slot) return;
+
         //Reset Drag Effects early for Clone
         canvasGroup.alpha = 1;
         blocksGroup.blocksRaycasts = true;
@@ -81,7 +85,11 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
             clone.GetComponent<RectTransform>().anchoredPosition = startPoint;
             firstDrop = false;
         }
-        else slot.unsetBlock(); //Notify Slot otherwise
+        else
+        {
+            slot.unsetBlock(); //Notify Slot otherwise
+            slot = null;
+        }
 
         //Set new DropLocation
         dropped = true;
@@ -89,9 +97,10 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
         slot = newSlot;
     }
 
-    public void updateLocation()
+    public void updateLocationSlot(BlockSlot bs)
     {
         startPoint = rTransform.anchoredPosition;
+        slot = bs;
     }
 
     private void resetPosition()
