@@ -348,10 +348,6 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/Scripts/BlockSlot.cs"
-"Assets/Scripts/BlockUI.cs"
-"Assets/Scripts/DeleteSlot.cs"
-"Assets/Scripts/DroneUI.cs"
 "Assets/Scripts/FreeCam.cs"
 "Assets/Scripts/Routinen/Action.cs"
 "Assets/Scripts/Routinen/Actions/MoveForward.cs"
@@ -368,8 +364,12 @@
 "Assets/Scripts/Routinen/Process.cs"
 "Assets/Scripts/Routinen/Routine.cs"
 "Assets/Scripts/Routinen/Storage.cs"
-"Assets/Scripts/RoutineUI.cs"
-"Assets/Scripts/Spawner.cs"
+"Assets/Scripts/UI/BlockSlot.cs"
+"Assets/Scripts/UI/BlockUI.cs"
+"Assets/Scripts/UI/DeleteSlot.cs"
+"Assets/Scripts/UI/DroneUI.cs"
+"Assets/Scripts/UI/InputBlocks/InputFor.cs"
+"Assets/Scripts/UI/RoutineUI.cs"
 -langversion:9.0
 
 /deterministic
