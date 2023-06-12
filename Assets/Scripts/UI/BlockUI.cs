@@ -8,8 +8,9 @@ using UnityEngine.EventSystems;
 
 public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public static bool raycastEnabled = true;
+
     RectTransform rTransform;
-    CanvasGroup blocksGroup;
     CanvasGroup canvasGroup;
 
     //Dragging
@@ -29,11 +30,16 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
         startup();
     }
 
+    void Update()
+    {
+        if (raycastEnabled) canvasGroup.blocksRaycasts = true;
+        else canvasGroup.blocksRaycasts = false;
+    }
+
     //Extendable Start Method
     internal virtual void startup()
     {
         rTransform = this.GetComponent<RectTransform>();
-        blocksGroup = transform.parent.GetComponent<CanvasGroup>();
         canvasGroup = this.GetComponent<CanvasGroup>();
 
         startPoint = rTransform.anchoredPosition;
@@ -51,7 +57,8 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
-        blocksGroup.blocksRaycasts = false;
+        raycastEnabled = false;
+
         try
         {
             slot.unsetBlock();
@@ -69,7 +76,7 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
             canvasGroup.alpha = 0;
         else
         {
-            rTransform.position = hitPos;
+            rTransform.position = hitPos + new Vector3(0, 0, 0.1f);
             canvasGroup.alpha = 1;
         }
     }
@@ -78,7 +85,7 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
     {
         //Reset Drag Effects
         canvasGroup.alpha = 1;
-        blocksGroup.blocksRaycasts = true;
+        raycastEnabled = true;
 
         if (!dropped)
         {
@@ -92,7 +99,7 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
     {
         //Reset Drag Effects early for Clone
         canvasGroup.alpha = 1;
-        blocksGroup.blocksRaycasts = true;
+        raycastEnabled = true;
 
         //Clone if new
         if (firstDrag)
