@@ -10,6 +10,8 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 {
     public static bool raycastEnabled = true;
 
+    public static GameObject canvas;
+
     RectTransform rTransform;
     CanvasGroup canvasGroup;
 
@@ -27,6 +29,7 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
     // Start is called before the first frame update
     void Start()
     {
+        if (!canvas) canvas = GameObject.FindGameObjectWithTag("Canvas");
         startup();
     }
 
@@ -63,10 +66,13 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
         {
             slot.unsetBlock();
             slot = null;
-        } catch (NullReferenceException)
+        }
+        catch (NullReferenceException)
         {   //THAT IS FINE
             Debug.Log("NoSlotYet");
         }
+
+        transform.SetParent(canvas.transform);
     }
 
     public virtual void OnDrag(PointerEventData eventData)
@@ -111,14 +117,14 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 
         //Set new DropLocation
         dropped = true;
-        startPoint = rTransform.anchoredPosition;
         slot = newSlot;
+        transform.SetParent(newSlot.transform);
     }
 
-    public void updateLocationSlot(BlockSlot bs)
+    public void updateSlot(BlockSlot bs)
     {
-        startPoint = rTransform.anchoredPosition;
         slot = bs;
+        transform.SetParent(bs.transform);
     }
 
     private void resetPosition()

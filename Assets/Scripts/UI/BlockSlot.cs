@@ -50,7 +50,7 @@ public class BlockSlot : MonoBehaviour, IDropHandler
     {
         if (droppedBlock == null) return;
         droppedBlock.GetComponent<RectTransform>().position = this.GetComponent<RectTransform>().position;
-        droppedBlock.GetComponent<BlockUI>().updateLocationSlot(this);
+        droppedBlock.GetComponent<BlockUI>().updateSlot(this);
     }
 
 }
