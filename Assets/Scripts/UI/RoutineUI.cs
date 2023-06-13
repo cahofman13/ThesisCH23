@@ -10,10 +10,12 @@ public class RoutineUI : MonoBehaviour
 
     bool needReorder = false;
 
+    RectTransform rectTransform;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rectTransform = this.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -90,9 +92,11 @@ public class RoutineUI : MonoBehaviour
             shiftBlock = temp;
             slot.updateBlockPosition();
         }
+        //unnecessary because reorder erases?
         GameObject newSlot = Instantiate(blockSlotPrefab, transform);
         newSlot.GetComponent<BlockSlot>().index = transform.childCount;
-        newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, -80) + (new Vector2(0, -120) * (transform.childCount - 1));
+        //newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, -80) + (new Vector2(0, -120) * (transform.childCount - 1));
+        
         needReorder = true;
     }
 
@@ -105,7 +109,7 @@ public class RoutineUI : MonoBehaviour
     {
         int disabledChilds = 0;
         int i = 1;
-        Vector2 pos = new Vector2(150, -80);
+        //Vector2 pos = new Vector2(150, -80);
         foreach (Transform child in transform)
         {
             if(child.GetComponent<BlockSlot>().droppedBlock == null)
@@ -116,18 +120,19 @@ public class RoutineUI : MonoBehaviour
             }
             else
             {
-                child.GetComponent<RectTransform>().anchoredPosition = pos;
+                //child.GetComponent<RectTransform>().anchoredPosition = pos;
                 BlockSlot slot = child.GetComponent<BlockSlot>();
                 slot.updateBlockPosition();
                 slot.index = i;
-                pos += new Vector2(0, -120);
+                //pos += new Vector2(0, -120);
                 i++;
             }
         }
         GameObject newSlot = Instantiate(blockSlotPrefab, transform);
-        newSlot.GetComponent<BlockSlot>().index = transform.childCount - disabledChilds;
-        newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, -80) + (new Vector2(0, -120) * (transform.childCount - 1 - disabledChilds));
-
+        int actualChildCount = transform.childCount - disabledChilds;
+        newSlot.GetComponent<BlockSlot>().index = actualChildCount;
+        //newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, -80) + (new Vector2(0, -120) * (actualChildCount - 1));
+        
         needReorder = false;
     }
 

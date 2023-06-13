@@ -11,10 +11,12 @@ public class BlockSlot : MonoBehaviour, IDropHandler
     //BlockUI
     public GameObject droppedBlock;
 
+    RectTransform rectTransform;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rectTransform = this.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -31,8 +33,9 @@ public class BlockSlot : MonoBehaviour, IDropHandler
         GameObject oldBlock = droppedBlock;
 
         droppedBlock = eventData.pointerDrag;
+
         //THIS ORDER IS IMPORTANT IT INTERACTS DIRECTLY WITH THE BLOCK_UI
-        droppedBlock.GetComponent<RectTransform>().position = this.GetComponent<RectTransform>().position;
+        droppedBlock.GetComponent<RectTransform>().position = rectTransform.position;
         droppedBlock.GetComponent<BlockUI>().registerDrop(this);
 
         {
@@ -42,6 +45,7 @@ public class BlockSlot : MonoBehaviour, IDropHandler
 
     public void unsetBlock()
     {
+        //no need to unsize, this will be deleted anyway
         droppedBlock = null;
         transform.parent.GetComponent<RoutineUI>().blockRemoved();
     }
