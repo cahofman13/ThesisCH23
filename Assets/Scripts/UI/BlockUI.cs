@@ -30,12 +30,6 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
         startup();
     }
 
-    void Update()
-    {
-        if (raycastEnabled) canvasGroup.blocksRaycasts = true;
-        else canvasGroup.blocksRaycasts = false;
-    }
-
     //Extendable Start Method
     internal virtual void startup()
     {
@@ -43,6 +37,12 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
         canvasGroup = this.GetComponent<CanvasGroup>();
 
         startPoint = rTransform.anchoredPosition;
+    }
+
+    void Update()
+    {
+        if (raycastEnabled) canvasGroup.blocksRaycasts = true;
+        else canvasGroup.blocksRaycasts = false;
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
