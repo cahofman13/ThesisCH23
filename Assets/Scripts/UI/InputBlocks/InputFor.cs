@@ -19,7 +19,7 @@ public class InputFor : BlockUI
     {
         base.startup();
         blockName = "ForBlock";
-        routineCanvas = transform.GetChild(0).GetChild(0).GetComponent<CanvasGroup>();
+        routineCanvas = transform.GetChild(1).GetChild(1).GetComponent<CanvasGroup>();
     }
 
     public void dropdownSetExecutionTarget(GameObject dropdownGO)
