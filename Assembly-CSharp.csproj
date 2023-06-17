@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\UI\BlockUI.cs" />
     <Compile Include="Assets\Scripts\Routinen\Operation.cs" />
     <Compile Include="Assets\Scripts\Routinen\Block.cs" />
+    <Compile Include="Assets\Scripts\UI\InputBlocks\InputIf.cs" />
     <Compile Include="Assets\Scripts\FreeCam.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Routinen\Ops\Term.cs" />

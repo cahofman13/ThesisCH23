@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Storage
 {
+
     //<type ?>
     Dictionary<string, Object> list = new Dictionary<string, Object>();
 
@@ -28,6 +29,11 @@ public class Storage
             value = null;
             return false;
         }
+    }
+
+    public Dictionary<string, Object>.KeyCollection listNames()
+    {
+        return list.Keys;
     }
 
 }

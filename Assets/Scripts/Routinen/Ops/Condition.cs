@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-enum Comp
+public enum Comp
 {
     EQUAL,
     LOWER,
@@ -12,12 +12,12 @@ enum Comp
 
 public class Condition : Term
 {
-    Comp comp = Comp.EQUAL;
+    public Comp comp = Comp.EQUAL;
 
-    string key1 = null;
-    Object value1 = "";     //so default evaluates to false
-    string key2 = null;
-    Object value2 = null;
+    public string key1 = null;
+    public Object value1 = "";     //so default evaluates to false
+    public string key2 = null;
+    public Object value2 = null;
 
     public Condition() { }
 
