@@ -69,7 +69,21 @@ public class RoutineUI : MonoBehaviour
                         break;
 
                     //-----------------------OPERATIONS--------------------------
-                    case "Operation": Debug.LogWarning("OPERATION not implemented"); break; //splitted here in READ + WRITE later
+                    case "WriteBlock":
+                        Operation writeBlock = new Operation();
+                        InputWrite inputWrite = blockUI.GetComponent<InputWrite>();
+                        writeBlock.setOpNone(inputWrite.key, inputWrite.name1, inputWrite.value1);
+                        process.addBlock(writeBlock);
+                        break;
+                    case "CalcBlock":
+                        Operation calcBlock = new Operation();
+                        InputCalc inputCalc = blockUI.GetComponent<InputCalc>();
+                        if(inputCalc.Op == "/") calcBlock.setOpDiv(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
+                        else if(inputCalc.Op == "x") calcBlock.setOpMult(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
+                        else if(inputCalc.Op == "-") calcBlock.setOpSub(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
+                        else calcBlock.setOpAdd(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
+                        process.addBlock(calcBlock);
+                        break;
 
                     default: Debug.LogWarning("Reading Unidentified Block in UI"); break;
                 }

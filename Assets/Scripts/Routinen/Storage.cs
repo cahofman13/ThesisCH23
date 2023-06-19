@@ -8,6 +8,8 @@ public class Storage
     //<type ?>
     Dictionary<string, Object> list = new Dictionary<string, Object>();
 
+    public static string[] varNameArray = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O" };
+
     public void writeValue(string name, Object obj)
     {
         if(list.ContainsKey(name))

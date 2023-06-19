@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\TextUpdater.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputWhile.cs" />
+    <Compile Include="Assets\Scripts\UI\InputBlocks\InputWrite.cs" />
+    <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
