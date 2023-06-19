@@ -50,15 +50,26 @@ public class RoutineUI : MonoBehaviour
 
                     //-----------------------CONTROLS----------------------------
                     case "ForBlock":
-                        ForBlock block = new ForBlock();
-                        block.process = getProcessFromBlock(blockUI);
-                        block.executionTarget = blockUI.GetComponent<InputFor>().executionTarget;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-                        process.addBlock(block);
+                        ForBlock forBlock = new ForBlock();
+                        forBlock.process = getProcessFromBlock(blockUI);
+                        forBlock.executionTarget = blockUI.GetComponent<InputFor>().executionTarget;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                        process.addBlock(forBlock);
+                        break;
+                    case "IfBlock":
+                        IfBlock ifBlock = new IfBlock();
+                        ifBlock.process = getProcessFromBlock(blockUI);
+                        ifBlock.condition = new Condition(blockUI.GetComponent<InputIf>().condition);
+                        process.addBlock(ifBlock);
+                        break;
+                    case "WhileBlock":
+                        WhileBlock whileBlock = new WhileBlock();
+                        whileBlock.process = getProcessFromBlock(blockUI);
+                        whileBlock.condition = new Condition(blockUI.GetComponent<InputWhile>().condition);
+                        process.addBlock(whileBlock);
                         break;
 
                     //-----------------------OPERATIONS--------------------------
                     case "Operation": Debug.LogWarning("OPERATION not implemented"); break; //splitted here in READ + WRITE later
-                    case "Condition": Debug.LogWarning("CONDITION not implemented"); break;
 
                     default: Debug.LogWarning("Reading Unidentified Block in UI"); break;
                 }

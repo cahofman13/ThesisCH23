@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DroneUI : MonoBehaviour
@@ -32,6 +33,11 @@ public class DroneUI : MonoBehaviour
 
         //Pause Drone with Key <V>
         if (pauseToggle && Input.GetKeyDown(KeyCode.V)) pauseToggle.GetComponent<Toggle>().isOn = !pauseToggle.GetComponent<Toggle>().isOn;
+    }
+
+    public void resetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BlockSlot : MonoBehaviour, IDropHandler
 {
@@ -28,7 +29,8 @@ public class BlockSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)  //ISSUESS FIXXXXXX PLSSSS NOWWWWN :-(((((((((((((((((((((
     {
         //noChange!
-        if (droppedBlock == eventData.pointerDrag) return;
+        if (eventData.pointerDrag == droppedBlock) return;
+        if (eventData.pointerDrag.TryGetComponent(out Slider slider)) return;
 
         GameObject oldBlock = droppedBlock;
 

@@ -1,31 +1,73 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class InputIf : BlockUI
 {
     CanvasGroup routineCanvas;
+    Routine routine;
+
+    string[] varNameArray = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"};
 
     public Condition condition = new Condition();
+
+    [SerializeField] private TMP_Dropdown compare;
+    [SerializeField] private TMP_Dropdown value1Var;
+    [SerializeField] private TMP_Dropdown value2Type;
+    [SerializeField] private TMP_Dropdown value2Var;
+    [SerializeField] private Slider value2Num;
 
     internal override void startup()
     {
         base.startup();
         blockName = "IfBlock";
         routineCanvas = transform.GetChild(1).GetChild(1).GetComponent<CanvasGroup>();
+        routine = canvas.GetComponentInParent<Routine>();
+        dropdownSetValue1Var();
+        dropdownSetCompare();
+        dropdownSetType2();
     }
 
-    public void dropdownSetExecutionTarget(GameObject dropdownGO)
+    internal override void UpdateExtend()
     {
-        TMP_Dropdown dropdown = dropdownGO.GetComponent<TMP_Dropdown>();
-        string text = dropdown.options[dropdown.value].text;
+        base.UpdateExtend();
+        if (value1Var.gameObject.activeInHierarchy) updateVarDropdown(value1Var);
+        if (value2Var.gameObject.activeInHierarchy) updateVarDropdown(value2Var);
+    }
+
+    private void updateVarDropdown(TMP_Dropdown dropdown)
+    {
+        ref Storage storage = ref routine.getStorage();
+        List<string> names = new List<string>();
+        foreach (string key in storage.listNames())
+        {
+            names.Add(key);
+        }
+        foreach (string s in varNameArray)
+        {
+            if (!names.Contains(s))
+            {
+                names.Add(s);
+                break;
+            }
+        }
+        foreach (TMP_Dropdown.OptionData option in dropdown.options)
+        {
+            if (names.Contains(option.text)) names.Remove(option.text);
+        }
+        dropdown.AddOptions(names);
+    }
+
+    public void dropdownSetCompare()
+    {
+        string text = compare.options[compare.value].text;
         switch (text)
         {
             case "<": condition.comp = Comp.LOWER; break;
@@ -34,6 +76,37 @@ public class InputIf : BlockUI
 
             default: condition.comp = Comp.EQUAL; break;
         }
+    }
+
+    public void dropdownSetValue1Var()
+    {
+        string text = value1Var.options[value1Var.value].text;
+        condition.key1 = text;
+        ref Storage storage = ref routine.getStorage();
+        if (!storage.listNames().Contains(text)) storage.writeValue(text, null);
+    }
+
+    public void dropdownSetType2()
+    {
+        string text = value2Type.options[value2Type.value].text;
+        switch (text)
+        {
+            case "Variable": setValue2Variable(); break;
+            case "Number": setValue2Number(); break;
+
+            default: setValue2Variable(); break;
+        }
+    }
+
+    public void dropdownSetValue2Var()
+    {
+        condition.key2 = value2Var.options[value2Var.value].text;
+    }
+
+    public void dropdownSetValue2Num(float f)
+    {
+        condition.key2 = null;
+        condition.value2 = f;
     }
 
     public override void OnBeginDrag(PointerEventData eventData)
@@ -58,6 +131,19 @@ public class InputIf : BlockUI
     {
         routineCanvas.blocksRaycasts = true;
         base.OnEndDrag(eventData);
+    }
+
+    private void setValue2Variable()
+    {
+        value2Var.gameObject.SetActive(true);
+        value2Num.gameObject.SetActive(false);
+    }
+
+    private void setValue2Number()
+    {
+        value2Var.gameObject.SetActive(false);
+        value2Num.gameObject.SetActive(true);
+        dropdownSetValue2Num(value2Num.value);
     }
 
 }

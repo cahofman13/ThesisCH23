@@ -44,6 +44,11 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 
     void Update()
     {
+        UpdateExtend();
+    }
+
+    internal virtual void UpdateExtend()
+    {
         if (raycastEnabled) canvasGroup.blocksRaycasts = true;
         else canvasGroup.blocksRaycasts = false;
     }
@@ -103,6 +108,7 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 
     public virtual void registerDrop(BlockSlot newSlot)
     {
+        Debug.Log("dropped");
         //Reset Drag Effects early for Clone
         canvasGroup.alpha = 1;
         raycastEnabled = true;

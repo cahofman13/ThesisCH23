@@ -98,6 +98,11 @@ public class Routine : MonoBehaviour
         if (!process.IsUnityNull() && !paused) actProcess();
     }
 
+    public ref Storage getStorage()
+    {
+        return ref storage;
+    }
+
     //Auto-Updating Variables
     private void updateStorage()
     {

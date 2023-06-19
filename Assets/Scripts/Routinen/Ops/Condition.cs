@@ -33,13 +33,24 @@ public class Condition : Term
     {
         this.setComp(compare, key1, value1, key2, value2);
     }
-
+    public Condition(Condition original)
+    {
+        this.setComp(original.comp, original.key1, original.value1, original.key2, original.value2);
+    }
 
     public void setComp(int compare, string key1, Object value1, string key2, Object value2)
     {
         if (compare < 0) comp = Comp.LOWER;
         else if (compare == 0) comp = Comp.EQUAL;
         else if (compare > 0) comp = Comp.GREATER;
+        this.key1 = key1;
+        this.key2 = key2;
+        this.value1 = value1;
+        this.value2 = value2;
+    }
+    public void setComp(Comp comp, string key1, Object value1, string key2, Object value2)
+    {
+        this.comp = comp;
         this.key1 = key1;
         this.key2 = key2;
         this.value1 = value1;
