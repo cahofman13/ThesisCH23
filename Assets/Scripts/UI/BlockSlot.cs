@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class BlockSlot : MonoBehaviour, IDropHandler
+{
+    public int index = 1;
+
+    //BlockUI
+    public GameObject droppedBlock;
+
+    RectTransform rectTransform;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rectTransform = this.GetComponent<RectTransform>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void OnDrop(PointerEventData eventData)  //ISSUESS FIXXXXXX PLSSSS NOWWWWN :-(((((((((((((((((((((
+    {
+        //noChange!
+        if (eventData.pointerDrag == droppedBlock) return;
+        if (eventData.pointerDrag.TryGetComponent(out Slider slider)) return;
+
+        GameObject oldBlock = droppedBlock;
+
+        droppedBlock = eventData.pointerDrag;
+
+        //THIS ORDER IS IMPORTANT IT INTERACTS DIRECTLY WITH THE BLOCK_UI
+        droppedBlock.GetComponent<RectTransform>().position = rectTransform.position;
+        droppedBlock.GetComponent<BlockUI>().registerDrop(this);
+
+        {
+            transform.parent.GetComponent<RoutineUI>().blockAdded(oldBlock, index);
+        }
+    }
+
+    public void unsetBlock()
+    {
+        //no need to unsize, this will be deleted anyway
+        droppedBlock = null;
+        transform.parent.GetComponent<RoutineUI>().blockRemoved();
+    }
+
+    public void updateBlockPosition()
+    {
+        if (droppedBlock == null) return;
+        droppedBlock.GetComponent<RectTransform>().position = this.GetComponent<RectTransform>().position;
+        droppedBlock.GetComponent<BlockUI>().updateSlot(this);
+    }
+
+}
