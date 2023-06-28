@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Action : Block
 {
-    public bool checkDone()
+    public virtual bool checkDone()
     {
         return true;
     }

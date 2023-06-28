@@ -45,8 +45,11 @@ public class RoutineUI : MonoBehaviour
                 switch (blockType)
                 {
                     //-----------------------ACTIONS-----------------------------
-                    case "MoveForward": for(int i = 0; i < 50; i++) process.addBlock(new MoveForward()); break;
+                    case "MoveForward": process.addBlock(new MoveForward()); break;
                     case "TurnRight": process.addBlock(new TurnRight()); break;
+                    case "TurnLeft": process.addBlock(new TurnLeft()); break;
+                    case "Grab": process.addBlock(new Grab()); break;
+                    case "Release": process.addBlock(new Release()); break;
 
                     //-----------------------CONTROLS----------------------------
                     case "ForBlock":
