@@ -5,9 +5,21 @@ using UnityEngine;
 
 public class Action : Block
 {
-    public virtual bool checkDone()
+
+    internal bool done = true;
+
+    public bool checkDone()
     {
-        return true;
+        if (!done)
+        {
+            setUIactive();
+            return false;
+        }
+        else
+        {
+            setUIinactive();
+            return true;
+        }
     }
 
     public virtual void act(GameObject go)

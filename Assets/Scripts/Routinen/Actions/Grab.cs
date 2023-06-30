@@ -5,22 +5,18 @@ using UnityEngine;
 public class Grab : Action
 {
     GrabberModule grabberModule;
-    bool done = false;
-
-    public override bool checkDone()
-    {
-        if (!done) return false;
-        else
-        {
-            grabberModule = null;
-            done = false;
-            return true;
-        }
-    }
 
     public override void act(GameObject go)
     {
-        if(!grabberModule) 
+        //RESET
+        if (done)
+        {
+            grabberModule = null;
+            done = false;
+        }
+
+        //ACT
+        if (!grabberModule) 
         {
             //Might ERROR !
             grabberModule = go.GetComponentInChildren<GrabberModule>();

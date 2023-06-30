@@ -35,52 +35,52 @@ public class RoutineUI : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            GameObject blockUI = child.GetComponent<BlockSlot>().droppedBlock;
-            if (!blockUI) Debug.Log("ReadEmpty :)");
+            GameObject blockGO = child.GetComponent<BlockSlot>().droppedBlock;
+            if (!blockGO) Debug.Log("ReadEmpty :)");
             else
             {
-                string blockType = blockUI.GetComponent<BlockUI>().blockName;
+                BlockUI blockUI = blockGO.GetComponent<BlockUI>();
 
                 //REGISTER ALL BLOCKS HERE
-                switch (blockType)
+                switch (blockUI.blockName)
                 {
                     //-----------------------ACTIONS-----------------------------
-                    case "MoveForward": process.addBlock(new MoveForward()); break;
-                    case "TurnRight": process.addBlock(new TurnRight()); break;
-                    case "TurnLeft": process.addBlock(new TurnLeft()); break;
-                    case "Grab": process.addBlock(new Grab()); break;
-                    case "Release": process.addBlock(new Release()); break;
+                    case "MoveForward": process.addBlock(new MoveForward(), blockUI); break;
+                    case "TurnRight": process.addBlock(new TurnRight(), blockUI); break;
+                    case "TurnLeft": process.addBlock(new TurnLeft(), blockUI); break;
+                    case "Grab": process.addBlock(new Grab(), blockUI); break;
+                    case "Release": process.addBlock(new Release(), blockUI); break;
 
                     //-----------------------CONTROLS----------------------------
                     case "ForBlock":
                         ForBlock forBlock = new ForBlock();
-                        forBlock.process = getProcessFromBlock(blockUI);
-                        forBlock.executionTarget = blockUI.GetComponent<InputFor>().executionTarget;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                        forBlock.process = getProcessFromBlock(blockGO);
+                        forBlock.executionTarget = blockGO.GetComponent<InputFor>().executionTarget;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
                         process.addBlock(forBlock);
                         break;
                     case "IfBlock":
                         IfBlock ifBlock = new IfBlock();
-                        ifBlock.process = getProcessFromBlock(blockUI);
-                        ifBlock.condition = new Condition(blockUI.GetComponent<InputIf>().condition);
+                        ifBlock.process = getProcessFromBlock(blockGO);
+                        ifBlock.condition = new Condition(blockGO.GetComponent<InputIf>().condition);
                         process.addBlock(ifBlock);
                         break;
                     case "WhileBlock":
                         WhileBlock whileBlock = new WhileBlock();
-                        whileBlock.process = getProcessFromBlock(blockUI);
-                        whileBlock.condition = new Condition(blockUI.GetComponent<InputWhile>().condition);
+                        whileBlock.process = getProcessFromBlock(blockGO);
+                        whileBlock.condition = new Condition(blockGO.GetComponent<InputWhile>().condition);
                         process.addBlock(whileBlock);
                         break;
 
                     //-----------------------OPERATIONS--------------------------
                     case "WriteBlock":
                         Operation writeBlock = new Operation();
-                        InputWrite inputWrite = blockUI.GetComponent<InputWrite>();
+                        InputWrite inputWrite = blockGO.GetComponent<InputWrite>();
                         writeBlock.setOpNone(inputWrite.key, inputWrite.name1, inputWrite.value1);
                         process.addBlock(writeBlock);
                         break;
                     case "CalcBlock":
                         Operation calcBlock = new Operation();
-                        InputCalc inputCalc = blockUI.GetComponent<InputCalc>();
+                        InputCalc inputCalc = blockGO.GetComponent<InputCalc>();
                         if(inputCalc.Op == "/") calcBlock.setOpDiv(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
                         else if(inputCalc.Op == "x") calcBlock.setOpMult(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
                         else if(inputCalc.Op == "-") calcBlock.setOpSub(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);

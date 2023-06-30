@@ -95,7 +95,15 @@ public class Routine : MonoBehaviour
     private void FixedUpdate()
     {
         updateStorage();
-        if (!process.IsUnityNull() && !paused) actProcess();
+        if (!process.IsUnityNull())
+        {
+            if (!paused) actProcess();
+
+            //finishAction if paused
+            else if (process.currentAction != null 
+                && !process.currentAction.checkDone()) 
+                process.currentAction.act(gameObject);
+        }
     }
 
     public ref Storage getStorage()
@@ -106,9 +114,9 @@ public class Routine : MonoBehaviour
     //Auto-Updating Variables
     private void updateStorage()
     {
-        storage.writeValue("posX", transform.position.x);
-        storage.writeValue("posY", transform.position.y);
-        storage.writeValue("posZ", transform.position.z);
+        storage.writeValue("posX", transform.position.x / 5);
+        storage.writeValue("posY", transform.position.y / 5);
+        storage.writeValue("posZ", transform.position.z / 5);
 
     }
 

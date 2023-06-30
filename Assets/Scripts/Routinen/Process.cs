@@ -73,6 +73,10 @@ public class Process
         blocks.Add(block);
     }
 
-
+    public void addBlock(Block block, BlockUI blockUI)
+    {
+        addBlock(block);
+        block.setUIblock(blockUI);
+    }
 
 }
