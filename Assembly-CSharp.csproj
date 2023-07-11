@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Routinen\Ops\Term.cs" />
     <Compile Include="Assets\Scripts\UI\DeleteSlot.cs" />
     <Compile Include="Assets\Scripts\Routinen\Action.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\Release.cs" />
     <Compile Include="Assets\Scripts\Routinen\Storage.cs" />
     <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
