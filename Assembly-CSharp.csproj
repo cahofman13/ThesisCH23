@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Actions\SetMarker.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Actions\FlyToMarker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

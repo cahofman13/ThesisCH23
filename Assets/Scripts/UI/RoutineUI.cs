@@ -50,6 +50,16 @@ public class RoutineUI : MonoBehaviour
                     case "TurnLeft": process.addBlock(new TurnLeft(), blockUI); break;
                     case "Grab": process.addBlock(new Grab(), blockUI); break;
                     case "Release": process.addBlock(new Release(), blockUI); break;
+                    case "SetMarker": 
+                        SetMarker setMarker = new SetMarker();
+                        setMarker.color = "Red";
+                        process.addBlock(setMarker, blockUI); 
+                        break;
+                    case "FlyToMarker":
+                        FlyToMarker flyToMarker = new FlyToMarker();
+                        flyToMarker.color = "Red";
+                        process.addBlock(flyToMarker, blockUI);
+                        break;
 
                     //-----------------------CONTROLS----------------------------
                     case "ForBlock":
