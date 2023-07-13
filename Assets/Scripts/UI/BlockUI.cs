@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -14,6 +15,8 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
 
     RectTransform rTransform;
     CanvasGroup canvasGroup;
+    internal Image image;
+    Color activeColor = new Color(1, 0.74f, 0.7f);
 
     //Dragging
     internal bool firstDrag = true;
@@ -30,6 +33,7 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
     void Start()
     {
         if (!canvas) canvas = GameObject.FindGameObjectWithTag("Canvas");
+        if (TryGetComponent(out Image img)) image = img;
         startup();
     }
 
@@ -51,6 +55,16 @@ public class BlockUI : MonoBehaviour, IInitializePotentialDragHandler, IPointerD
     {
         if (raycastEnabled) canvasGroup.blocksRaycasts = true;
         else canvasGroup.blocksRaycasts = false;
+    }
+
+    public void setBlockActive()
+    {
+        image.color = activeColor;
+    }
+
+    public void setBlockInactive()
+    {
+        image.color = Color.white;
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)

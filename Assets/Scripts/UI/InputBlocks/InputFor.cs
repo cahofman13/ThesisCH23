@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class InputFor : BlockUI
 {
@@ -20,6 +19,7 @@ public class InputFor : BlockUI
         base.startup();
         blockName = "ForBlock";
         routineCanvas = transform.GetChild(1).GetChild(1).GetComponent<CanvasGroup>();
+        image = transform.GetComponentInChildren<Image>();
     }
 
     public void dropdownSetExecutionTarget(GameObject dropdownGO)

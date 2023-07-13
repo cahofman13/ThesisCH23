@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : Action
+public class TurnLeft : Action
 {
     int i = 0;
 
@@ -18,10 +18,10 @@ public class MoveForward : Action
         }
 
         //ACT
-        go.transform.position += go.transform.forward * 0.05f;
+        go.transform.Rotate(go.transform.up, -1);
         i++;
 
         //GOAL
-        if (i == 100) done = true;
+        if (i == 90) done = true;
     }
 }

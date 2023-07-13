@@ -28,6 +28,7 @@ public class InputIf : BlockUI
         blockName = "IfBlock";
         routineCanvas = transform.GetChild(1).GetChild(1).GetComponent<CanvasGroup>();
         routine = canvas.GetComponentInParent<Routine>();
+        image = transform.GetComponentInChildren<Image>();
         dropdownSetValue1Var();
         dropdownSetCompare();
         dropdownSetType2();
