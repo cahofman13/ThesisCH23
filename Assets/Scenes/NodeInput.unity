@@ -7271,8 +7271,9 @@ GameObject:
   - component: {fileID: 345383257}
   - component: {fileID: 345383258}
   - component: {fileID: 345383259}
+  - component: {fileID: 345383260}
   m_Layer: 0
-  m_Name: Interface
+  m_Name: Interface(Drone1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7285,8 +7286,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345383256}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7302,8 +7303,8 @@ Transform:
   - {fileID: 345493123}
   - {fileID: 772657499}
   - {fileID: 1984329319}
-  m_Father: {fileID: 1838087823}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &345383258
 MonoBehaviour:
@@ -7325,17 +7326,36 @@ RotationConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345383256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Weight: 1
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_RotationOffset: {x: 0, y: 0, z: 0}
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_IsContraintActive: 1
+  m_IsContraintActive: 0
   m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 1507958411}
+    weight: 1
+--- !u!1818360608 &345383260
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345383256}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 4, z: 0}
+  m_TranslationOffset: {x: 0, y: 3, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 1838087823}
     weight: 1
 --- !u!1 &345493118 stripped
 GameObject:
@@ -20126,6 +20146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944502710}
   - component: {fileID: 944502711}
+  - component: {fileID: 944502712}
   m_Layer: 0
   m_Name: FakeLine
   m_TagString: Untagged
@@ -20249,6 +20270,21 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &944502712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944502709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19b3c8fb1bcb714ea25f6e7ab044acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: {fileID: 1838087820}
+  end: {fileID: 1200233940}
+  sync: 1
 --- !u!1001 &944812810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40454,7 +40490,7 @@ GameObject:
   - component: {fileID: 1838087822}
   - component: {fileID: 1838087821}
   m_Layer: 0
-  m_Name: Drone (1)
+  m_Name: Drone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40498,7 +40534,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 345383257}
   - {fileID: 501538345}
   m_Father: {fileID: 0}
   m_RootOrder: 35
