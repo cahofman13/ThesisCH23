@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Routine : MonoBehaviour
 {
-    public bool paused = false;
+    public bool paused = true;
     public Process process;
     Storage storage = new Storage();
 
@@ -136,6 +136,7 @@ public class Routine : MonoBehaviour
     {
         storage = new Storage();  //??? KEEP HERE ???
         process = proc;
+        Debug.Log("Process set!");
     }
 
 

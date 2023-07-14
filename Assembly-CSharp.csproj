@@ -73,7 +73,8 @@
     <Compile Include="Assets\Scripts\Routinen\Actions\Release.cs" />
     <Compile Include="Assets\Scripts\Routinen\Storage.cs" />
     <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
-    <Compile Include="Assets\Scripts\UI\RoutineUI.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Actions\SetMarker.cs" />
+    <Compile Include="Assets\Scripts\UI\ProcessUI.cs" />
     <Compile Include="Assets\Scripts\GrabberModule.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\TextUpdater.cs" />
     <Compile Include="Assets\Scripts\UI\DroneUI.cs" />
@@ -84,12 +85,18 @@
     <Compile Include="Assets\Scripts\Routinen\Actions\TurnLeft.cs" />
     <Compile Include="Assets\Scripts\UI\BlockSlot.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputWrite.cs" />
+    <Compile Include="Assets\Scripts\Routinen\Actions\FlyToMarker.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputFor.cs" />
     <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
-    <Compile Include="Assets\Scripts\Routinen\Actions\SetMarker.cs" />
-    <Compile Include="Assets\Scripts\Routinen\Actions\FlyToMarker.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Connection.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Node.cs" />
+    <Compile Include="Assets\Scripts\Manager\MaterialManager.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\NodeControl.cs" />
+    <Compile Include="Assets\Scripts\DroneCommand.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\DroneInterface.cs" />
+    <Compile Include="Assets\Scripts\Manager\ColorManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
