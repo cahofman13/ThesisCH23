@@ -91,7 +91,7 @@ public class IfNode : Node
                 switch (v2Type)
                 {
                     case InputType.NUM:
-                        if (v2Num > 0)
+                        if (v2Num > -999)
                         {
                             v2Num--;
                             condition.value2 = v2Num;

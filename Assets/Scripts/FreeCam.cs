@@ -97,12 +97,8 @@ namespace Unity.AI.Navigation.Samples
                 Node n = newObject.GetComponent<Node>();
                 n.prev = null;
                 n.next = null;
-                if (n.isControl)
-                {
-                    n.intern = null;
-                    StartCoroutine(delayMaterialChange(n, true));
-                }
-                else StartCoroutine(delayMaterialChange(n, false));
+                n.intern = null;
+                StartCoroutine(delayMaterialChange(n));
             }
             //EndDrag
             if (draggedObject && Input.GetButtonUp("Fire1"))
@@ -113,11 +109,12 @@ namespace Unity.AI.Navigation.Samples
             }
         }
 
-        IEnumerator delayMaterialChange(Node n, bool control)
+        IEnumerator delayMaterialChange(Node n)
         {
             yield return null;
-            if(control) n.setControlInactive();
+            if (n.isControl) n.setControlInactive();
             else n.setActionInactive();
+            n.setDrag(true);
         }
 
         void lineDragging()
