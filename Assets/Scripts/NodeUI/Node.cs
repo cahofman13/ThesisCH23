@@ -18,41 +18,56 @@ public class Node : MonoBehaviour
     public Connection prev;
     public Connection next;
 
+    public Connection intern;
+    public bool isControl { get; internal set; } = false;
+
+    internal bool isDragged = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        startup();
+        exStart();
     }
 
     //Extendable Start Method
-    internal virtual void startup()
+    internal virtual void exStart()
     {
         renderer = this.GetComponent<Renderer>();
     }
 
     void Update()
     {
-        UpdateExtend();
+        exUpdate();
     }
 
-    internal virtual void UpdateExtend()
+    internal virtual void exUpdate()
     {
         
     }
 
-    public void setBlockActive()
+    public virtual void setDrag(bool dragged)
     {
-        renderer.material = MaterialManager.instance.mNodeActive;
+        isDragged = dragged;
     }
 
-    public void setBlockInactive()
+    public void setActionActive()
     {
-        renderer.material = MaterialManager.instance.mNodeInactive;
+        renderer.material = MaterialManager.instance.mNodeActionActive;
     }
 
-    public void setBlockInternal()
+    public void setActionInactive()
     {
-        renderer.material = MaterialManager.instance.mNodeInternal;
+        renderer.material = MaterialManager.instance.mNodeActionInactive;
+    }
+
+    public void setControlActive()
+    {
+        renderer.material = MaterialManager.instance.mNodeControlActive;
+    }
+
+    public void setControlInactive()
+    {
+        renderer.material = MaterialManager.instance.mNodeControlInactive;
     }
 
 }

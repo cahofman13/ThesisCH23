@@ -76,7 +76,7 @@ public class Process
     public void addBlock(Block block, Node node)
     {
         addBlock(block);
-        block.setUIblock(node);
+        block.setUINode(node);
     }
 
 }

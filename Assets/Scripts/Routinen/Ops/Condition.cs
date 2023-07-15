@@ -80,7 +80,9 @@ public class Condition : Term
         }
 
         bool result = false;
-        if (value1.GetType() == value2.GetType())
+        Type type1 = value1.GetType();
+        Type type2 = value2.GetType();
+        if (type1 == type2)
         {
             switch (comp)
             {

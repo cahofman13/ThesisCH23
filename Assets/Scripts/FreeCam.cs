@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -51,12 +53,19 @@ namespace Unity.AI.Navigation.Samples
         void Update()
         {
             cameraOperation();
+            changePointerDistance();
             blockDragging();
             lineDragging();
         }
 
+        void changePointerDistance()
+        {
+            pointer.transform.position += transform.forward * Input.GetAxisRaw("Mouse ScrollWheel") * 5;
+        }
+
         void blockDragging()
         {
+            //StartDrag
             if (Input.GetButtonDown("Fire1"))
             {
                 foreach (Collider collider in Physics.OverlapSphere(pointer.transform.position, pointer.transform.lossyScale.x))
@@ -65,6 +74,7 @@ namespace Unity.AI.Navigation.Samples
                     {
                         Debug.Log("startDrag");
                         draggedObject = collider.gameObject;
+                        draggedObject.GetComponent<Node>().setDrag(true);
                         constraint = draggedObject.AddComponent<PositionConstraint>();
                         constraint.constraintActive = true;
                         ConstraintSource source = new ConstraintSource();
@@ -76,11 +86,38 @@ namespace Unity.AI.Navigation.Samples
                     }
                 }
             }
-            if (Input.GetButtonUp("Fire1"))
+            //CLONE
+            if (draggedObject && Input.GetButtonDown("Fire3"))
+            {
+                GameObject newObject = Instantiate(draggedObject, draggedObject.transform.parent);
+                Destroy(constraint);
+                draggedObject.GetComponent<Node>().setDrag(false);
+                draggedObject = newObject;
+                constraint = newObject.GetComponent<PositionConstraint>();
+                Node n = newObject.GetComponent<Node>();
+                n.prev = null;
+                n.next = null;
+                if (n.isControl)
+                {
+                    n.intern = null;
+                    StartCoroutine(delayMaterialChange(n, true));
+                }
+                else StartCoroutine(delayMaterialChange(n, false));
+            }
+            //EndDrag
+            if (draggedObject && Input.GetButtonUp("Fire1"))
             {
                 Destroy(constraint);
+                draggedObject.GetComponent<Node>().setDrag(false);
                 draggedObject = null;
             }
+        }
+
+        IEnumerator delayMaterialChange(Node n, bool control)
+        {
+            yield return null;
+            if(control) n.setControlInactive();
+            else n.setActionInactive();
         }
 
         void lineDragging()
@@ -109,12 +146,27 @@ namespace Unity.AI.Navigation.Samples
             {
                 switch(lineState)
                 {
-                    case LineState.NEXT: 
-                        lineState = LineState.PREV;
-                        line.end = lineNode.gameObject;
-                        line.start = pointer.gameObject;
-                        if (lineNode.next) lineNode.next.lineRenderer.enabled = true;
-                        if (lineNode.prev) lineNode.prev.lineRenderer.enabled = false;
+                    case LineState.NEXT:
+                        if (!lineNode.isControl)
+                        {
+                            lineState = LineState.PREV;
+                            line.end = lineNode.gameObject;
+                            line.start = pointer.gameObject;
+                            if (lineNode.next) lineNode.next.lineRenderer.enabled = true;
+                            if (lineNode.prev) lineNode.prev.lineRenderer.enabled = false;
+                        }
+                        else
+                        {
+                            lineState = LineState.INTERN;
+                            Gradient gradient1 = line.lineRenderer.colorGradient;
+                            GradientColorKey[] colorKeys1 = gradient1.colorKeys;
+                            colorKeys1[0].color = ColorManager.instance.cInternStart;
+                            colorKeys1[1].color = ColorManager.instance.cInternEnd;
+                            gradient1.SetKeys(colorKeys1, line.lineRenderer.colorGradient.alphaKeys);
+                            line.lineRenderer.colorGradient = gradient1;
+                            if (lineNode.next) lineNode.next.lineRenderer.enabled = true;
+                            if (lineNode.intern) lineNode.intern.lineRenderer.enabled = false;
+                        }
                         break;
                     case LineState.PREV: 
                         lineState = LineState.NEXT;
@@ -124,10 +176,17 @@ namespace Unity.AI.Navigation.Samples
                         if (lineNode.prev) lineNode.prev.lineRenderer.enabled = true;
                         break;
                     case LineState.INTERN:
-                        line.lineRenderer.colorGradient.colorKeys[0].color = Color.green;
-                        line.lineRenderer.colorGradient.colorKeys[1].color = Color.red;
-                        line.lineRenderer.colorGradient.colorKeys[0].color = ColorManager.instance.cInternStart;
-                        line.lineRenderer.colorGradient.colorKeys[1].color = ColorManager.instance.cInternEnd;
+                        lineState = LineState.PREV;
+                        Gradient gradient2 = line.lineRenderer.colorGradient;
+                        GradientColorKey[] colorKeys2 = gradient2.colorKeys;
+                        colorKeys2[0].color = Color.green;
+                        colorKeys2[1].color = Color.red;
+                        gradient2.SetKeys(colorKeys2, line.lineRenderer.colorGradient.alphaKeys);
+                        line.lineRenderer.colorGradient = gradient2;
+                        line.end = lineNode.gameObject;
+                        line.start = pointer.gameObject;
+                        if (lineNode.intern) lineNode.intern.lineRenderer.enabled = true;
+                        if (lineNode.prev) lineNode.prev.lineRenderer.enabled = false;
                         break;
                 }
             }
@@ -137,8 +196,9 @@ namespace Unity.AI.Navigation.Samples
             {
                 switch (lineState)
                 {
-                    case LineState.NEXT: destroyLine(lineNode, true); break;
-                    case LineState.PREV: destroyLine(lineNode, false); break;
+                    case LineState.NEXT: destroyLine(lineNode, LineState.NEXT); break;
+                    case LineState.PREV: destroyLine(lineNode, LineState.PREV); break;
+                    case LineState.INTERN: destroyLine(lineNode, LineState.INTERN); break;
                 }
 
                 cancelLineDrag();
@@ -166,24 +226,38 @@ namespace Unity.AI.Navigation.Samples
                     switch(lineState)
                     {
                         case LineState.NEXT:
-                            if (lineNode.prev && target.gameObject == lineNode.prev.start) { cancelLineDrag(); break; }
+                            if (lineNode.prev && target.gameObject == lineNode.prev.start
+                                || lineNode.intern && target.gameObject == lineNode.intern.end) { cancelLineDrag(); break; }
 
                             line.end = target.gameObject;
-                            destroyLine(lineNode, true);
-                            destroyLine(target, false);
+                            destroyLine(lineNode, LineState.NEXT);
+                            destroyLine(target, LineState.PREV);
                             lineNode.next = line;
                             target.prev = line;
                             break;
 
 
                         case LineState.PREV:
-                            if (lineNode.next && target.gameObject == lineNode.next.end) { cancelLineDrag(); break; }
+                            if (lineNode.next && target.gameObject == lineNode.next.end
+                                || lineNode.intern && target.gameObject == lineNode.intern.end) { cancelLineDrag(); break; }
 
                             line.start = target.gameObject;
-                            destroyLine(lineNode, false);
-                            destroyLine(target, true);
+                            destroyLine(lineNode, LineState.PREV);
+                            destroyLine(target, LineState.NEXT);
                             lineNode.prev = line;
                             target.next = line;
+                            break;
+
+
+                        case LineState.INTERN:
+                            if (lineNode.prev && target.gameObject == lineNode.prev.start
+                                || lineNode.next && target.gameObject == lineNode.next.end) { cancelLineDrag(); break; }
+
+                            line.end = target.gameObject;
+                            destroyLine(lineNode, LineState.INTERN);
+                            destroyLine(target, LineState.PREV);
+                            lineNode.intern = line;
+                            target.prev = line;
                             break;
                     }
                 }
@@ -206,9 +280,9 @@ namespace Unity.AI.Navigation.Samples
             Destroy(line.gameObject);
         }
 
-        void destroyLine(Node lineNode, bool next)
+        void destroyLine(Node lineNode, LineState lineType)
         {
-            if(next)
+            if(lineType == LineState.NEXT)
             {
                 if (lineNode.next)
                 {
@@ -218,13 +292,25 @@ namespace Unity.AI.Navigation.Samples
                     Destroy(connection.gameObject);
                 }
             }
-            else
+            else if (lineType == LineState.PREV)
             {
                 if (lineNode.prev)
                 {
                     Connection connection = lineNode.prev;
                     lineNode.prev = null;
-                    connection.start.GetComponent<Node>().next = null;
+                    Node targetNode = connection.start.GetComponent<Node>();
+                    if (targetNode.next == connection) targetNode.next = null;
+                    if (targetNode.intern == connection) targetNode.intern = null;
+                    Destroy(connection.gameObject);
+                }
+            }
+            else if(lineType == LineState.INTERN)
+            {
+                if (lineNode.intern)
+                {
+                    Connection connection = lineNode.intern;
+                    lineNode.intern = null;
+                    connection.end.GetComponent<Node>().prev = null;
                     Destroy(connection.gameObject);
                 }
             }

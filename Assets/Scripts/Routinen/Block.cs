@@ -11,22 +11,27 @@ public class Block
 
     Node node;
 
-    internal void setUIactive() 
+    internal void setUIactiveAction() 
     {
-        if(node) node.setBlockActive();
+        if(node) node.setActionActive();
     }
 
-    internal void setUIinactive()
+    internal void setUIinactiveAction()
     {
-        if (node) node.setBlockInactive();
+        if (node) node.setActionInactive();
     }
 
-    internal void setUIinternal()
+    internal void setUIactiveControl()
     {
-        if (node) node.setBlockInternal();
+        if (node) node.setControlActive();
     }
 
-    public void setUIblock(Node node)
+    internal void setUIinactiveControl()
+    {
+        if (node) node.setControlInactive();
+    }
+
+    public void setUINode(Node node)
     {
         this.node = node;
     }

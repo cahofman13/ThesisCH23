@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DroneInterface : MonoBehaviour
 {
-    [SerializeField] Node start; 
-
+    [SerializeField] Node start;
     public Process getProcess()
     {
+        if (start.next != null) return getProcess(start.next.end.GetComponent<Node>());
+        else return new Process();
+    }
+
+    private Node getFirstNodeFromIntern(Node controlNode)
+    {
+        if (controlNode.intern)
+            if(controlNode.intern.end.TryGetComponent(out Node n)) return n;
+        return null;
+    }
+
+    private Process getProcess(Node startNode)
+    {
+        if(!startNode) { Debug.Log("Empty Start Node, Creating Empty Process."); return new Process(); }
+
         Process process = new Process();
-        Node node = start;
+        Node node = startNode;
 
         while (true)
         {
-            if (node.next != null && node.next.end.TryGetComponent(out Node n) && n.blockName != "Start") node = n;
-            else break;
-
             //REGISTER ALL BLOCKS HERE
             switch (node.blockName)
             {
@@ -25,37 +37,37 @@ public class DroneInterface : MonoBehaviour
                 case "TurnLeft": process.addBlock(new TurnLeft(), node); break;
                 case "Grab": process.addBlock(new Grab(), node); break;
                 case "Release": process.addBlock(new Release(), node); break;
-                /*case "SetMarker":
+                case "SetMarker":
                     SetMarker setMarker = new SetMarker();
-                    setMarker.color = "Red";
-                    process.addBlock(setMarker, blockUI);
+                    setMarker.color = ((MarkerNode)node).getColorName();
+                    process.addBlock(setMarker, node);
                     break;
                 case "FlyToMarker":
                     FlyToMarker flyToMarker = new FlyToMarker();
-                    flyToMarker.color = "Red";
-                    process.addBlock(flyToMarker, blockUI);
+                    flyToMarker.color = ((MarkerNode)node).getColorName();
+                    process.addBlock(flyToMarker, node);
                     break;
-
+                    
                 //-----------------------CONTROLS----------------------------
                 case "ForBlock":
                     ForBlock forBlock = new ForBlock();
-                    forBlock.process = getProcessFromBlock(blockGO);
-                    forBlock.executionTarget = blockGO.GetComponent<InputFor>().executionTarget;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-                    process.addBlock(forBlock);
+                    forBlock.process = getProcess(getFirstNodeFromIntern(node));
+                    forBlock.executionTarget = ((ForNode)node).repeatNr;
+                    process.addBlock(forBlock, node);
                     break;
                 case "IfBlock":
                     IfBlock ifBlock = new IfBlock();
-                    ifBlock.process = getProcessFromBlock(blockGO);
-                    ifBlock.condition = new Condition(blockGO.GetComponent<InputIf>().condition);
-                    process.addBlock(ifBlock);
+                    ifBlock.process = getProcess(getFirstNodeFromIntern(node));
+                    ifBlock.condition = new Condition(((IfNode)node).condition);
+                    process.addBlock(ifBlock, node);
                     break;
                 case "WhileBlock":
                     WhileBlock whileBlock = new WhileBlock();
-                    whileBlock.process = getProcessFromBlock(blockGO);
-                    whileBlock.condition = new Condition(blockGO.GetComponent<InputWhile>().condition);
-                    process.addBlock(whileBlock);
+                    whileBlock.process = getProcess(getFirstNodeFromIntern(node));
+                    whileBlock.condition = new Condition(((IfNode)node).condition);
+                    process.addBlock(whileBlock, node);
                     break;
-
+                    /*
                 //-----------------------OPERATIONS--------------------------
                 case "WriteBlock":
                     Operation writeBlock = new Operation();
@@ -76,6 +88,8 @@ public class DroneInterface : MonoBehaviour
                 default: Debug.LogWarning("Reading Unidentified Block in UI"); break;
             }
 
+            if (node.next != null && node.next.end.TryGetComponent(out Node n) && n.blockName != "Start") node = n;
+            else break;
 
         }   //End of While
 

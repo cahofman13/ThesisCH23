@@ -5,9 +5,10 @@ using UnityEngine;
 public class MaterialManager : MonoBehaviour
 {
     public static MaterialManager instance;
-    public Material mNodeInactive;
-    public Material mNodeActive;
-    public Material mNodeInternal;
+    public Material mNodeActionInactive;
+    public Material mNodeActionActive;
+    public Material mNodeControlInactive;
+    public Material mNodeControlActive;
 
     private void Start()
     {

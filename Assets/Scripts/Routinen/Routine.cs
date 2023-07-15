@@ -114,9 +114,9 @@ public class Routine : MonoBehaviour
     //Auto-Updating Variables
     private void updateStorage()
     {
-        storage.writeValue("posX", transform.position.x / 5);
-        storage.writeValue("posY", transform.position.y / 5);
-        storage.writeValue("posZ", transform.position.z / 5);
+        storage.writeValue("posX", (float) Math.Round(transform.position.x, 4) / 5);
+        storage.writeValue("posY", (float) Math.Round(transform.position.y, 4) / 5);
+        storage.writeValue("posZ", (float) Math.Round(transform.position.z, 4) / 5);
 
     }
 

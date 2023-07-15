@@ -68,9 +68,13 @@
     <Compile Include="Assets\Scripts\Routinen\Actions\MoveForward.cs" />
     <Compile Include="Assets\Scripts\Routinen\Ops\Term.cs" />
     <Compile Include="Assets\Scripts\UI\DeleteSlot.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\DroneInterface.cs" />
     <Compile Include="Assets\Scripts\Routinen\Action.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Node.cs" />
     <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\Release.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Connection.cs" />
+    <Compile Include="Assets\Scripts\DroneCommand.cs" />
     <Compile Include="Assets\Scripts\Routinen\Storage.cs" />
     <Compile Include="Assets\Scripts\Routinen\Routine.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\SetMarker.cs" />
@@ -80,8 +84,10 @@
     <Compile Include="Assets\Scripts\UI\DroneUI.cs" />
     <Compile Include="Assets\Scripts\Routinen\Ops\Condition.cs" />
     <Compile Include="Assets\Scripts\Routinen\Executor.cs" />
+    <Compile Include="Assets\Scripts\Manager\ColorManager.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputWhile.cs" />
     <Compile Include="Assets\Scripts\Routinen\Controls\ForBlock.cs" />
+    <Compile Include="Assets\Scripts\Manager\MaterialManager.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\TurnLeft.cs" />
     <Compile Include="Assets\Scripts\UI\BlockSlot.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputWrite.cs" />
@@ -90,13 +96,12 @@
     <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\Connection.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\Node.cs" />
-    <Compile Include="Assets\Scripts\Manager\MaterialManager.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\NodeControl.cs" />
-    <Compile Include="Assets\Scripts\DroneCommand.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\DroneInterface.cs" />
-    <Compile Include="Assets\Scripts\Manager\ColorManager.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Action\MarkerNode.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\SideContent\ColorDisplay.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\SideContent\NumberDisplay.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Controls\ForNode.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\SideContent\ConditionDisplay.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Controls\IfNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
