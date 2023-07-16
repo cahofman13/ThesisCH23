@@ -67,23 +67,23 @@ public class DroneInterface : MonoBehaviour
                     whileBlock.condition = new Condition(((IfNode)node).condition);
                     process.addBlock(whileBlock, node);
                     break;
-                    /*
+                    
                 //-----------------------OPERATIONS--------------------------
                 case "WriteBlock":
                     Operation writeBlock = new Operation();
-                    InputWrite inputWrite = blockGO.GetComponent<InputWrite>();
-                    writeBlock.setOpNone(inputWrite.key, inputWrite.name1, inputWrite.value1);
+                    WriteNode writeNode = (WriteNode)node;
+                    writeBlock.setOpNone(writeNode.getTarget(), writeNode.getVal1().Item1, writeNode.getVal1().Item2);
                     process.addBlock(writeBlock);
                     break;
                 case "CalcBlock":
                     Operation calcBlock = new Operation();
-                    InputCalc inputCalc = blockGO.GetComponent<InputCalc>();
-                    if (inputCalc.Op == "/") calcBlock.setOpDiv(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
-                    else if (inputCalc.Op == "x") calcBlock.setOpMult(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
-                    else if (inputCalc.Op == "-") calcBlock.setOpSub(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
-                    else calcBlock.setOpAdd(inputCalc.key, inputCalc.name1, inputCalc.value1, inputCalc.name2, inputCalc.value2);
+                    CalcNode calcNode = (CalcNode)node;
+                    if (calcNode.opType == CalcNode.OpType.ADD) calcBlock.setOpAdd(calcNode.getTarget(), calcNode.getVal1().Item1, calcNode.getVal1().Item2, calcNode.getVal2().Item1, calcNode.getVal2().Item2);
+                    else if (calcNode.opType == CalcNode.OpType.SUB) calcBlock.setOpSub(calcNode.getTarget(), calcNode.getVal1().Item1, calcNode.getVal1().Item2, calcNode.getVal2().Item1, calcNode.getVal2().Item2);
+                    else if (calcNode.opType == CalcNode.OpType.MUL) calcBlock.setOpMult(calcNode.getTarget(), calcNode.getVal1().Item1, calcNode.getVal1().Item2, calcNode.getVal2().Item1, calcNode.getVal2().Item2);
+                    else calcBlock.setOpDiv(calcNode.getTarget(), calcNode.getVal1().Item1, calcNode.getVal1().Item2, calcNode.getVal2().Item1, calcNode.getVal2().Item2);
                     process.addBlock(calcBlock);
-                    break;*/
+                    break;
 
                 default: Debug.LogWarning("Reading Unidentified Block in UI"); break;
             }

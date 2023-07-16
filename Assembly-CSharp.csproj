@@ -102,6 +102,10 @@
     <Compile Include="Assets\Scripts\Routinen\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routinen\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\SideContent\WriteDisplay.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Operations\WriteNode.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\SideContent\CalcDisplay.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\Operations\CalcNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

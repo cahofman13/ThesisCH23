@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Xml.Linq;
 
 public enum Comp
@@ -80,9 +81,17 @@ public class Condition : Term
         }
 
         bool result = false;
-        Type type1 = value1.GetType();
-        Type type2 = value2.GetType();
-        if (type1 == type2)
+        bool compare = false;
+        try
+        {
+            Type type1 = value1.GetType();
+            Type type2 = value2.GetType();
+            compare = true;
+        } catch (Exception e)
+        {
+            UnityEngine.Debug.LogWarning("Caught Error while getting Type, probably meaning it is NULL which is fine! \n" + e);
+        }
+        if (compare)
         {
             switch (comp)
             {
