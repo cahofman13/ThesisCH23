@@ -41,7 +41,7 @@ public class BlockSlot : MonoBehaviour, IDropHandler
         droppedBlock.GetComponent<BlockUI>().registerDrop(this);
 
         {
-            transform.parent.GetComponent<RoutineUI>().blockAdded(oldBlock, index);
+            transform.parent.GetComponent<ProcessUI>().blockAdded(oldBlock, index);
         }
     }
 
@@ -49,7 +49,7 @@ public class BlockSlot : MonoBehaviour, IDropHandler
     {
         //no need to unsize, this will be deleted anyway
         droppedBlock = null;
-        transform.parent.GetComponent<RoutineUI>().blockRemoved();
+        transform.parent.GetComponent<ProcessUI>().blockRemoved();
     }
 
     public void updateBlockPosition()

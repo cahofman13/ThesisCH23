@@ -9,20 +9,30 @@ public class Block
     // :O 
     // RIP empty 15.05.2023 - 30.06.2023
 
-    BlockUI blockUI;
+    Node node;
 
-    internal void setUIactive() 
+    internal void setUIactiveAction() 
     {
-        if(blockUI) blockUI.setBlockActive();
+        if(node) node.setActionActive();
     }
 
-    internal void setUIinactive()
+    internal void setUIinactiveAction()
     {
-        if (blockUI) blockUI.setBlockInactive();
+        if (node) node.setActionInactive();
     }
 
-    public void setUIblock(BlockUI blockUI)
+    internal void setUIactiveControl()
     {
-        this.blockUI = blockUI;
+        if (node) node.setControlActive();
+    }
+
+    internal void setUIinactiveControl()
+    {
+        if (node) node.setControlInactive();
+    }
+
+    public void setUINode(Node node)
+    {
+        this.node = node;
     }
 }

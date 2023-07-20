@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4685710696112327591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1184894524462043103, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975700203097225961, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984315980514728367, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830681106946741745, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876469156294211255, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412217469425034496, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_text
+      value: Set Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482172056968306887, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783910480778843202, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220287838276520875, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_text
+      value: Set Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264642150224849133, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_text
+      value: Set Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326548939331683989, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: blockName
+      value: SetMarker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743754, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_Name
+      value: nSetMarker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743761, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743765, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: blockName
+      value: SetMarker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791673526671244122, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009953340870950557, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_text
+      value: Set Marker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4905c3cacbce7694ea591139335f9984, type: 3}

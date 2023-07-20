@@ -18,10 +18,12 @@ public class Control : Block
         calculate(ref storage);
         if (!finished)
         {
+            setUIactiveControl();
             return (false, currentAction);
         }
         else
         {
+            setUIinactiveControl();
             reset();
             return (true, currentAction);
         }

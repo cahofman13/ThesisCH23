@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class RoutineUI : MonoBehaviour
+public class ProcessUI : MonoBehaviour
 {
     [SerializeField]
     private GameObject blockSlotPrefab;
@@ -45,20 +45,20 @@ public class RoutineUI : MonoBehaviour
                 switch (blockUI.blockName)
                 {
                     //-----------------------ACTIONS-----------------------------
-                    case "MoveForward": process.addBlock(new MoveForward(), blockUI); break;
-                    case "TurnRight": process.addBlock(new TurnRight(), blockUI); break;
-                    case "TurnLeft": process.addBlock(new TurnLeft(), blockUI); break;
-                    case "Grab": process.addBlock(new Grab(), blockUI); break;
-                    case "Release": process.addBlock(new Release(), blockUI); break;
+                    case "MoveForward": process.addBlock(new MoveForward()); break;
+                    case "TurnRight": process.addBlock(new TurnRight()); break;
+                    case "TurnLeft": process.addBlock(new TurnLeft()); break;
+                    case "Grab": process.addBlock(new Grab()); break;
+                    case "Release": process.addBlock(new Release()); break;
                     case "SetMarker": 
                         SetMarker setMarker = new SetMarker();
                         setMarker.color = "Red";
-                        process.addBlock(setMarker, blockUI); 
+                        process.addBlock(setMarker); 
                         break;
                     case "FlyToMarker":
                         FlyToMarker flyToMarker = new FlyToMarker();
                         flyToMarker.color = "Red";
-                        process.addBlock(flyToMarker, blockUI);
+                        process.addBlock(flyToMarker);
                         break;
 
                     //-----------------------CONTROLS----------------------------
@@ -112,7 +112,7 @@ public class RoutineUI : MonoBehaviour
 
         //try - catch for Child ?
         {
-            RoutineUI routineUI = blockUI.GetComponentInChildren<RoutineUI>();
+            ProcessUI routineUI = blockUI.GetComponentInChildren<ProcessUI>();
             if (routineUI != null) process = routineUI.gather();
             else Debug.LogError("No Routine found in Block " + blockUI.name);
         }

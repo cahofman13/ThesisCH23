@@ -12,12 +12,12 @@ public class Action : Block
     {
         if (!done)
         {
-            setUIactive();
+            setUIactiveAction();
             return false;
         }
         else
         {
-            setUIinactive();
+            setUIinactiveAction();
             return true;
         }
     }

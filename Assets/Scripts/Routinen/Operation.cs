@@ -57,50 +57,54 @@ public class Operation : Block
 
             case Op.ADD:
                 {
+                    System.Object result = value1;
                     //Current Supported Types: FLOAT | STRING
                     if (value1.GetType() == value2.GetType())
                     {
-                        if (value1 is float) value1 = (float)value1 + (float)value2;
-                        if (value1 is string) value1 = (string)value1 + (string)value2;
+                        if (value1 is float) result = (float)value1 + (float)value2;
+                        if (value1 is string) result = (string)value1 + (string)value2;
                     }
                     //IF OPERATION DIDNT SUCCEED, WE IGNORE VALUE2!!
-                    storage.writeValue(key, value1);
+                    storage.writeValue(key, result);
                 }
                 break;
 
             case Op.SUB:
                 {
+                    System.Object result = value1;
                     //Current Supported Types: FLOAT | STRING
                     if (value1.GetType() == value2.GetType())
                     {
-                        if (value1 is float) value1 = (float)value1 - (float)value2;
+                        if (value1 is float) result = (float)value1 - (float)value2;
                     }
                     //IF OPERATION DIDNT SUCCEED, WE IGNORE VALUE2!!
-                    storage.writeValue(key, value1);
+                    storage.writeValue(key, result);
                 }
                 break;
 
             case Op.MULT:
                 {
+                    System.Object result = value1;
                     //Current Supported Types: FLOAT
                     if (value1.GetType() == value2.GetType())
                     {
-                        if (value1 is float) value1 = (float)value1 * (float)value2;
+                        if (value1 is float) result = (float)value1 * (float)value2;
                     }
                     //IF OPERATION DIDNT SUCCEED, WE IGNORE VALUE2!!
-                    storage.writeValue(key, value1);
+                    storage.writeValue(key, result);
                 }
                 break;
 
             case Op.DIV:
                 {
+                    System.Object result = value1;
                     //Current Supported Types: FLOAT
                     if (value1.GetType() == value2.GetType())
                     {
-                        if (value1 is float) value1 = (float)value1 / (float)value2;
+                        if (value1 is float) result = (float)value1 / (float)value2;
                     }
                     //IF OPERATION DIDNT SUCCEED, WE IGNORE VALUE2!!
-                    storage.writeValue(key, value1);
+                    storage.writeValue(key, result);
                 }
                 break;
 

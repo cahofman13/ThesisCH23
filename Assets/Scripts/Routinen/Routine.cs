@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Routine : MonoBehaviour
 {
-    public bool paused = false;
+    public bool paused = true;
     public Process process;
     Storage storage = new Storage();
 
@@ -80,6 +80,11 @@ public class Routine : MonoBehaviour
         process.addBlock(new TurnRight());
     }
 
+    private void Awake()
+    {
+        updateStorage();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,9 +119,9 @@ public class Routine : MonoBehaviour
     //Auto-Updating Variables
     private void updateStorage()
     {
-        storage.writeValue("posX", transform.position.x / 5);
-        storage.writeValue("posY", transform.position.y / 5);
-        storage.writeValue("posZ", transform.position.z / 5);
+        storage.writeValue("posX", (float) Math.Round(transform.position.x, 4) / 5);
+        storage.writeValue("posY", (float) Math.Round(transform.position.y, 4) / 5);
+        storage.writeValue("posZ", (float) Math.Round(transform.position.z, 4) / 5);
 
     }
 
@@ -136,6 +141,7 @@ public class Routine : MonoBehaviour
     {
         storage = new Storage();  //??? KEEP HERE ???
         process = proc;
+        Debug.Log("Process set!");
     }
 
 
