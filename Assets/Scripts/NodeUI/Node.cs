@@ -59,6 +59,10 @@ public class Node : MonoBehaviour
     {
         renderer.material = MaterialManager.instance.mNodeActionInactive;
     }
+    public void setActionInvalid()
+    {
+        renderer.material = MaterialManager.instance.mNodeActionInvalid;
+    }
 
     public void setControlActive()
     {

@@ -20,6 +20,10 @@ public class Block
     {
         if (node) node.setActionInactive();
     }
+    internal void setUIinvalidAction()
+    {
+        if (node) node.setActionInvalid();
+    }
 
     internal void setUIactiveControl()
     {

@@ -7,6 +7,7 @@ public class MaterialManager : MonoBehaviour
     public static MaterialManager instance;
     public Material mNodeActionInactive;
     public Material mNodeActionActive;
+    public Material mNodeActionInvalid;
     public Material mNodeControlInactive;
     public Material mNodeControlActive;
 

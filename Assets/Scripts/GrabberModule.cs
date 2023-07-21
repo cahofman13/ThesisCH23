@@ -27,7 +27,7 @@ public class GrabberModule : MonoBehaviour
         if (hasGrabbed()) return false;
         if (inProgress) return false;
         Collider[] colliders = Physics.OverlapBox(
-            grabArea.transform.position + grabArea.center,
+            grabArea.transform.position,
             grabArea.bounds.extents);
         if (colliders.Count() <= 0) return false;
 

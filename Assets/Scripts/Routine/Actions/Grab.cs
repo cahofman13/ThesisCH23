@@ -2,30 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Release : Action
+public class Grab : Action
 {
     GrabberModule grabberModule;
+    int waitCount = 0;
 
     public override void act(GameObject go)
     {
         //RESET
-        if(done)
+        if (done)
         {
             grabberModule = null;
+            waitCount = 0;
             done = false;
+
+            grabberModule = go.GetComponentInChildren<GrabberModule>();
+            valid = grabberModule.grab();
         }
 
         //ACT
-        if(!grabberModule) 
+        if (!valid)
         {
-            //Might ERROR !
-            grabberModule = go.GetComponentInChildren<GrabberModule>();
-            bool valid = grabberModule.release();
-            if (!valid) done = true;
+            waitCount++;
+
+            //GOAL
+            if (waitCount >= 100) done = true;
         }
-        else
-        {
-            if (!grabberModule.inProgress) done = true;
-        }
+        else if (!grabberModule.inProgress) done = true;
     }
 }
