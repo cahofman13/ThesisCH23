@@ -105,6 +105,8 @@ namespace Unity.AI.Navigation.Samples
             {
                 Destroy(constraint);
                 draggedObject.GetComponent<Node>().setDrag(false);
+                if(draggedObject.transform.position.y < draggedObject.transform.lossyScale.y / 2) draggedObject.transform.position = 
+                    new Vector3(draggedObject.transform.position.x, draggedObject.transform.lossyScale.y / 2, draggedObject.transform.position.z);
                 draggedObject = null;
             }
         }

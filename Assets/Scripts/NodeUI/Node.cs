@@ -23,6 +23,9 @@ public class Node : MonoBehaviour
 
     internal bool isDragged = false;
 
+    float minimumHeight;
+    public bool gravity = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,7 @@ public class Node : MonoBehaviour
     //Extendable Start Method
     internal virtual void exStart()
     {
+        minimumHeight = transform.lossyScale.y/2;
         renderer = this.GetComponent<Renderer>();
     }
 
@@ -43,6 +47,21 @@ public class Node : MonoBehaviour
     internal virtual void exUpdate()
     {
         
+    }
+
+    void FixedUpdate()
+    {
+        exFixedUpdate();
+    }
+
+    internal virtual void exFixedUpdate()
+    {
+        if(gravity && transform.position.y > minimumHeight)
+        {
+            if (transform.position.y - minimumHeight < 0.1f) transform.position = new Vector3(transform.position.x, minimumHeight, transform.position.z);
+            else transform.position += new Vector3(0, -0.1f, 0);
+        }
+
     }
 
     public virtual void setDrag(bool dragged)
