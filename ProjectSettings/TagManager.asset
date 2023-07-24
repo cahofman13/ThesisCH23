@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Canvas
   - Grabable
+  - Drone
   layers:
   - Default
   - TransparentFX
@@ -21,11 +22,11 @@ TagManager:
   - 
   - Maze
   - 
+  - Button
   - 
+  - Interface
   - 
-  - 
-  - 
-  - 
+  - Drone
   - 
   - 
   - 

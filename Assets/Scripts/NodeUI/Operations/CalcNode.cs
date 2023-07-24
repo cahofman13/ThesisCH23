@@ -11,6 +11,7 @@ public class CalcNode : Node
 {
     CalcDisplay[] calcDisplays;
 
+#pragma warning disable CS8632
     int v1Key = 0;
     float v1Num = 3;
     public (string?,float?) getVal1() { return (v1Type == InputType.VAR ? new(varNames[v1Key], null) : new(null, v1Num)); }
@@ -18,6 +19,7 @@ public class CalcNode : Node
     int v2Key = 0;
     float v2Num = 3;
     public (string?, float?) getVal2() { return (v2Type == InputType.VAR ? new(varNames[v2Key], null) : new(null, v2Num)); }
+#pragma warning restore CS8632
 
     int targKey = 3;
     public string getTarget() { return varNames[targKey]; }

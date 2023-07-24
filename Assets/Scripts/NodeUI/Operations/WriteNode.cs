@@ -13,7 +13,10 @@ public class WriteNode : Node
 
     int v1Key = 0;
     float v1Num = 3;
+
+#pragma warning disable CS8632
     public (string?,float?) getVal1() { return (v1Type == InputType.VAR ? new(varNames[v1Key], null) : new(null, v1Num)); }
+#pragma warning restore CS8632
 
     int targKey = 3;
     public string getTarget() { return varNames[targKey]; }

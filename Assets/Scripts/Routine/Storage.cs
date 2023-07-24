@@ -17,7 +17,7 @@ public class Storage
             list.Remove(name);
         }
         list.Add(name, obj);
-        if(name != "posX" && name != "posY" && name != "posZ") UnityEngine.Debug.Log(name + ": " + obj);
+        if(name != "posX" && name != "posY" && name != "posZ" && name != "color") UnityEngine.Debug.Log(name + ": " + obj);
     }
 
     public bool readValue(string name, out Object value)

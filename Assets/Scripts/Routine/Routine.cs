@@ -10,6 +10,8 @@ public class Routine : MonoBehaviour
     public Process process;
     Storage storage = new Storage();
 
+    ScannerModule scannerModule;
+
     void Test1()
     {
         process = new Process();
@@ -89,6 +91,7 @@ public class Routine : MonoBehaviour
     void Start()
     {
         Test3();
+        scannerModule = GetComponentInChildren<ScannerModule>();
     }
 
     // Update is called once per frame
@@ -122,7 +125,11 @@ public class Routine : MonoBehaviour
         storage.writeValue("posX", (float) Math.Round(transform.position.x, 4) / 5);
         storage.writeValue("posY", (float) Math.Round(transform.position.y, 4) / 5);
         storage.writeValue("posZ", (float) Math.Round(transform.position.z, 4) / 5);
-
+        try { storage.writeValue("color", scannerModule.scanColor()); }
+        catch (NullReferenceException)
+        {  /*FirstTimeExpected*/
+            storage.writeValue("color", "None");
+        }
     }
 
     private void actProcess()
@@ -140,6 +147,11 @@ public class Routine : MonoBehaviour
     public void setProcess(Process proc)
     {
         storage = new Storage();  //??? KEEP HERE ???
+        storage.writeValue("red", "Red");
+        storage.writeValue("green", "Green");
+        storage.writeValue("blue", "Blue");
+        storage.writeValue("color", "None");
+
         process = proc;
         Debug.Log("Process set!");
     }

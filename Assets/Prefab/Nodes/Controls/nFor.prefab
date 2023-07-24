@@ -214,6 +214,9 @@ MonoBehaviour:
   prev: {fileID: 0}
   next: {fileID: 0}
   intern: {fileID: 0}
+  retainIsCollidedHud: 0
+  retainCollidedParent: {fileID: 0}
+  gravity: 0
 --- !u!1 &7509422606353283442
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +344,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8114945166057712474, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
 --- !u!224 &5885566794050659045 stripped
@@ -442,6 +449,10 @@ PrefabInstance:
     - target: {fileID: 7084563723099751840, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114945166057712474, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
@@ -545,6 +556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8114945166057712474, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
 --- !u!224 &165936532733155409 stripped
@@ -646,6 +661,10 @@ PrefabInstance:
     - target: {fileID: 7084563723099751840, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114945166057712474, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db9ca39ccdb532d4ba57f7247c9354a2, type: 3}
