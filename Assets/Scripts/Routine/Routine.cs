@@ -85,6 +85,8 @@ public class Routine : MonoBehaviour
     private void Awake()
     {
         updateStorage();
+        storage.writeValue("A", "None");
+        storage.writeValue("B", "None");
     }
 
     // Start is called before the first frame update
@@ -151,6 +153,8 @@ public class Routine : MonoBehaviour
         storage.writeValue("green", "Green");
         storage.writeValue("blue", "Blue");
         storage.writeValue("color", "None");
+        storage.writeValue("A", "None");
+        storage.writeValue("B", "None");
 
         process = proc;
         Debug.Log("Process set!");
