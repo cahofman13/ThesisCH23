@@ -96,7 +96,7 @@ public class Node : MonoBehaviour
         renderer.material = MaterialManager.instance.mNodeControlInactive;
     }
 
-    public void setNodeHUD(bool enter, Transform newParent)
+    public virtual void setNodeHUD(bool enter, Transform newParent)
     {
         if(enter)
         {

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    int count = 0;
+    internal int count = 0;
     internal bool activated = false;
 
-    new Renderer renderer;
+    new internal Renderer renderer;
 
     private void Start()
     {
@@ -21,12 +21,22 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        exOnTriggerEnter(other);
+    }
+
+    internal virtual void exOnTriggerEnter(Collider other)
+    {
         if (other.tag != "Grabable" && other.tag != "Drone") return;
-        if (!activated) activate(); 
+        if (!activated) activate();
         count++;
     }
 
     private void OnTriggerExit(Collider other)
+    {
+        exOnTriggerExit(other);
+    }
+
+    internal virtual void exOnTriggerExit(Collider other)
     {
         if (other.tag != "Grabable" && other.tag != "Drone") return;
         count--;
@@ -35,11 +45,13 @@ public class PressurePlate : MonoBehaviour
 
     internal virtual void activate()
     {
+        activated = true;
         renderer.material = MaterialManager.instance.mPressureActive;
     }
 
     internal virtual void deactivate()
     {
+        activated = false;
         renderer.material = MaterialManager.instance.mPressureInactive;
     }
 }

@@ -115,6 +115,7 @@
     <Compile Include="Assets\Scripts\Routine\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routine\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
+    <Compile Include="Assets\Scripts\Environment\SpawnerCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
