@@ -25,11 +25,11 @@ public class ControlsManager : MonoBehaviour
     #endregion
 
     #region Inputs
-    [SerializeField] InputActionProperty leftCancelBtn;
-    [SerializeField] InputActionProperty rightCancelBtn;
-    [HideInInspector] public float leftCancelValue;
-    [HideInInspector] public float rightCancelValue;
-    [HideInInspector] public float cancelValue;
+    [SerializeField] InputActionProperty leftGripBtn;
+    [SerializeField] InputActionProperty rightGripBtn;
+    [HideInInspector] public float leftGripValue;
+    [HideInInspector] public float rightGripValue;
+    [HideInInspector] public float GripValue;
 
     [SerializeField] InputActionProperty leftTriggerBtn;
     [SerializeField] InputActionProperty rightTriggerBtn;
@@ -56,9 +56,9 @@ public class ControlsManager : MonoBehaviour
 
     private void Update()
     {
-        leftCancelValue = leftCancelBtn.action.ReadValue<float>();
-        rightCancelValue = rightCancelBtn.action.ReadValue<float>();
-        cancelValue = Mathf.Max(leftCancelValue, rightCancelValue);
+        leftGripValue = leftGripBtn.action.ReadValue<float>();
+        rightGripValue = rightGripBtn.action.ReadValue<float>();
+        GripValue = Mathf.Max(leftGripValue, rightGripValue);
 
         leftTriggerValue = leftTriggerBtn.action.ReadValue<float>();
         rightTriggerValue = rightTriggerBtn.action.ReadValue<float>();
