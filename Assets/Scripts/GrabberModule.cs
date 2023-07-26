@@ -9,6 +9,7 @@ public class GrabberModule : MonoBehaviour
 
     GameObject grabbedObject = null;
     Transform originalParent = null;
+    Vector3 originalPosition;
 
     public bool inProgress { get; private set; } = false;
 
@@ -27,7 +28,7 @@ public class GrabberModule : MonoBehaviour
         if (hasGrabbed()) return false;
         if (inProgress) return false;
         Collider[] colliders = Physics.OverlapBox(
-            grabArea.transform.position + grabArea.center,
+            grabArea.transform.position,
             grabArea.bounds.extents);
         if (colliders.Count() <= 0) return false;
 
@@ -40,6 +41,7 @@ public class GrabberModule : MonoBehaviour
 
         inProgress = true;
         originalParent = grabbedObject.transform.parent;
+        originalPosition = grabbedObject.transform.position;
         grabbedObject.transform.parent = gameObject.transform;
 
         StartCoroutine(GrabCoroutine());
@@ -56,6 +58,18 @@ public class GrabberModule : MonoBehaviour
         StartCoroutine(ReleaseCoroutine());
 
         return true;
+    }
+
+    public void resetGrab()
+    {
+        if(grabbedObject)
+        {
+            grabbedObject.transform.parent = originalParent;
+            grabbedObject.transform.position = originalPosition;
+            grabbedObject.transform.rotation = Quaternion.identity;
+            grabbedObject = null;
+            transform.localRotation = Quaternion.Euler(0, 0, -90);
+        }
     }
 
     IEnumerator GrabCoroutine()

@@ -213,6 +213,10 @@ MonoBehaviour:
   blockName: FlyToMarker
   prev: {fileID: 0}
   next: {fileID: 0}
+  intern: {fileID: 0}
+  retainIsCollidedHud: 0
+  retainCollidedParent: {fileID: 0}
+  gravity: 0
 --- !u!1 &7509422606353283442
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +259,10 @@ PrefabInstance:
     - target: {fileID: 3627765957500585721, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
       propertyPath: m_Name
       value: ColorDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767282897635645194, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5829826155082971632, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
       propertyPath: m_Pivot.x
@@ -358,6 +366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColorDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4767282897635645194, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5829826155082971632, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -460,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColorDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4767282897635645194, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5829826155082971632, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -561,6 +577,10 @@ PrefabInstance:
     - target: {fileID: 3627765957500585721, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
       propertyPath: m_Name
       value: ColorDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767282897635645194, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5829826155082971632, guid: d7e5d29c84a7d5143b7df938950c695e, type: 3}
       propertyPath: m_Pivot.x

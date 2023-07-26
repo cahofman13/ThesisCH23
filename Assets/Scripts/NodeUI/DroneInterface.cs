@@ -6,6 +6,8 @@ using UnityEngine;
 public class DroneInterface : MonoBehaviour
 {
     [SerializeField] Node start;
+    [SerializeField] public InterfaceCollider interfaceCollider;
+
     public Process getProcess()
     {
         if (start.next != null) return getProcess(start.next.end.GetComponent<Node>());

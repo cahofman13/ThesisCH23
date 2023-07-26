@@ -15,10 +15,15 @@ public class MoveForward : Action
         {
             i = 0;
             done = false;
+            if(go.GetComponentInChildren<ScannerModule>().scanObstacle()) valid = false;
+            else valid = true;
         }
 
         //ACT
-        go.transform.position += go.transform.forward * 0.05f;
+        if (valid)
+        {
+            go.transform.position += go.transform.forward * 0.05f;
+        }
         i++;
 
         //GOAL

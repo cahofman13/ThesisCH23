@@ -214,6 +214,9 @@ MonoBehaviour:
   prev: {fileID: 0}
   next: {fileID: 0}
   intern: {fileID: 0}
+  retainIsCollidedHud: 0
+  retainCollidedParent: {fileID: 0}
+  gravity: 0
 --- !u!1 &7509422606353283442
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +256,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7509422604761089520}
     m_Modifications:
+    - target: {fileID: 3158590692787634713, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4114864034026106083, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -355,6 +362,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7509422606353283453}
     m_Modifications:
+    - target: {fileID: 3158590692787634713, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4114864034026106083, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -457,6 +468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7509422604706385354}
     m_Modifications:
+    - target: {fileID: 3158590692787634713, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4114864034026106083, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -559,6 +574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7509422604635269422}
     m_Modifications:
+    - target: {fileID: 3158590692787634713, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4114864034026106083, guid: 5836a2a4caebca64e8fc7fbd26cc4fe3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

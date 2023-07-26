@@ -13,7 +13,10 @@ public class WriteNode : Node
 
     int v1Key = 0;
     float v1Num = 3;
+
+#pragma warning disable CS8632
     public (string?,float?) getVal1() { return (v1Type == InputType.VAR ? new(varNames[v1Key], null) : new(null, v1Num)); }
+#pragma warning restore CS8632
 
     int targKey = 3;
     public string getTarget() { return varNames[targKey]; }
@@ -40,9 +43,13 @@ public class WriteNode : Node
     {
         base.exStart();
         writeDisplays = this.GetComponentsInChildren<WriteDisplay>();
-        routine = this.GetComponentInParent<DroneInterface>().gameObject
-            .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?
-        updateVarNames();
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?
+            updateVarNames();
+        }
+        catch (Exception e) { Debug.Log("Error when getting storage\n" + e); }
     }
 
     internal override void exUpdate()
@@ -63,6 +70,21 @@ public class WriteNode : Node
     {
         base.setDrag(dragged);
         foreach (WriteDisplay writeDisplay in writeDisplays) writeDisplay.activeBg[(int)inputState].SetActive(dragged);
+    }
+
+    public override void setNodeHUD(bool enter, Transform newParent)
+    {
+        base.setNodeHUD(enter, newParent);
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?
+            updateVarNames();
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error when getting storage\n" + e);
+        }
     }
 
     private void prevVal()
@@ -160,6 +182,7 @@ public class WriteNode : Node
 
     private void updateVarNames()
     {
+        if (!routine) return;
         ref Storage storage = ref routine.getStorage();
         varNames = new List<string>();
         foreach (string key in storage.listNames())

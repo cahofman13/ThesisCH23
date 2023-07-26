@@ -18,6 +18,8 @@ namespace Unity.AI.Navigation.Samples
     /// </summary>
     public class FreeCam : MonoBehaviour
     {
+        public static FreeCam instance;
+
         public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
         public RotationAxes axes = RotationAxes.MouseXAndY;
         public float sensitivityX = 15F;
@@ -36,7 +38,7 @@ namespace Unity.AI.Navigation.Samples
         float rotationY = 0F;
 
         Transform pointer;
-        GameObject draggedObject;
+        public GameObject draggedObject { get; private set; }
         PositionConstraint constraint;
 
         public GameObject linePrefab;
@@ -46,6 +48,7 @@ namespace Unity.AI.Navigation.Samples
 
         private void Start()
         {
+            if(!instance) instance = this;
             Cursor.visible = false;
             pointer = transform.GetChild(0);
         }
@@ -74,7 +77,9 @@ namespace Unity.AI.Navigation.Samples
                     {
                         Debug.Log("startDrag");
                         draggedObject = collider.gameObject;
-                        draggedObject.GetComponent<Node>().setDrag(true);
+                        Node node = draggedObject.GetComponent<Node>();
+                        node.setDrag(true);
+                        if(node.retainIsCollidedHud) node.setRetainedHud();
                         constraint = draggedObject.AddComponent<PositionConstraint>();
                         constraint.constraintActive = true;
                         ConstraintSource source = new ConstraintSource();
@@ -84,6 +89,8 @@ namespace Unity.AI.Navigation.Samples
                         constraint.weight = 1;
                         break;
                     }
+                    //Button
+                    if (collider.gameObject.layer == LayerMask.NameToLayer("Button")) collider.gameObject.GetComponent<Button>().press();
                 }
             }
             //CLONE
@@ -105,6 +112,8 @@ namespace Unity.AI.Navigation.Samples
             {
                 Destroy(constraint);
                 draggedObject.GetComponent<Node>().setDrag(false);
+                if(draggedObject.transform.position.y < draggedObject.transform.lossyScale.y / 2) draggedObject.transform.position = 
+                    new Vector3(draggedObject.transform.position.x, draggedObject.transform.lossyScale.y / 2, draggedObject.transform.position.z);
                 draggedObject = null;
             }
         }
@@ -124,10 +133,12 @@ namespace Unity.AI.Navigation.Samples
             {
                 foreach (Collider collider in Physics.OverlapSphere(pointer.transform.position, pointer.transform.lossyScale.x))
                 {
-                    if (collider.gameObject.layer == LayerMask.NameToLayer("Node"))
+                    if (collider.gameObject.layer == LayerMask.NameToLayer("Node") 
+                        && collider.gameObject.TryGetComponent(out Node node) 
+                        && !node.gravity)
                     {
                         Debug.Log("startLine");
-                        lineNode = collider.gameObject.GetComponent<Node>();
+                        lineNode = node;
                         if(lineNode.next) lineNode.next.lineRenderer.enabled = false;
                         line = Instantiate(linePrefab, lineNode.transform.parent).GetComponent<Connection>();
                         line.start = lineNode.gameObject;
@@ -212,7 +223,9 @@ namespace Unity.AI.Navigation.Samples
                 Node target = null;
                 foreach (Collider collider in Physics.OverlapSphere(pointer.transform.position, pointer.transform.lossyScale.x))
                 {
-                    if (collider.gameObject.layer == LayerMask.NameToLayer("Node") && collider.gameObject != lineNode.gameObject)
+                    if (collider.gameObject.layer == LayerMask.NameToLayer("Node") 
+                        && collider.gameObject != lineNode.gameObject
+                        && collider.transform.parent == lineNode.transform.parent)
                     {
                         target = collider.gameObject.GetComponent<Node>();
                     }
