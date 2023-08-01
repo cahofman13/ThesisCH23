@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -39,9 +40,12 @@ public class IfNode : Node
         base.exStart();
         isControl = true;
         conditionDisplays = this.GetComponentsInChildren<ConditionDisplay>();
-        routine = this.GetComponentInParent<DroneInterface>().gameObject
-            .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?
-        updateVarNames();
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?!
+        } catch (NullReferenceException e) { Debug.LogWarning(e.Message); }
+            updateVarNames();
         condition.setComp(Comp.GREATER, "posX", null, null, 3f);
     }
 

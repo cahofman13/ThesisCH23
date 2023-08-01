@@ -28,6 +28,7 @@ public class Node : MonoBehaviour
 
     float minimumHeight;
     public bool gravity = false;
+    Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class Node : MonoBehaviour
     {
         minimumHeight = transform.lossyScale.y/2;
         renderer = this.GetComponent<Renderer>();
+        rigidbody = this.GetComponent<Rigidbody>();
     }
 
     void Update()

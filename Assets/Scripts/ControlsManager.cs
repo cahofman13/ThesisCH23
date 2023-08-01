@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ControlsManager : MonoBehaviour
 {
@@ -50,8 +51,30 @@ public class ControlsManager : MonoBehaviour
     [HideInInspector] public float secondaryValue;
     #endregion
 
+    [SerializeField] XRRayInteractor leftRayInteractor;
+    [SerializeField] XRRayInteractor rightRayInteractor;
+
+    public List<Node> leftHandNodes = new List<Node>();
+    public List<Node> rightHandNodes = new List<Node>();
+
     private void Start()
     {
+        /*
+        leftRayInteractor.selectEntered.AddListener((call) => 
+        { 
+            if(call.interactableObject != null && call.interactableObject.transform.TryGetComponent(out Node node))
+            {
+                leftHandNodes.Add(node); node.transform.SetParent(call.interactorObject.transform);
+            }    
+        });
+        leftRayInteractor.selectExited.AddListener((call) =>
+        {
+            if (call.interactableObject != null && call.interactableObject.transform.TryGetComponent(out Node node))
+            {
+                leftHandNodes.Remove(node); node.transform.SetParent(GameObject.Find("Plane").transform);
+            }
+        });
+        */
     }
 
     private void Update()
@@ -71,6 +94,5 @@ public class ControlsManager : MonoBehaviour
         leftSecondaryValue = leftSecundaryBtn.action.ReadValue<float>();
         rightSecondaryValue = rightSecundaryBtn.action.ReadValue<float>();
         secondaryValue = Mathf.Max(leftSecondaryValue, rightSecondaryValue);
-
     }
 }

@@ -10745,6 +10745,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3825591078273240225, guid: 998d627add26ebd469e636ca208867e7, type: 3}
   m_PrefabInstance: {fileID: 772060465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &773346467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170358348045146552, guid: 2f5d0b166157a2f4791a1ba902160b94, type: 3}
+  m_PrefabInstance: {fileID: 502532689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &773346472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773346467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0e5fd1092427c47b9ddbe1be5e1a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 547555916}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &796977813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12405,6 +12491,10 @@ MonoBehaviour:
   leftSecondaryValue: 0
   rightSecondaryValue: 0
   secondaryValue: 0
+  leftRayInteractor: {fileID: 0}
+  rightRayInteractor: {fileID: 0}
+  leftHandNodes: []
+  rightHandNodes: []
 --- !u!4 &885114954
 Transform:
   m_ObjectHideFlags: 0
