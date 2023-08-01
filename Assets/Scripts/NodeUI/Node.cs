@@ -12,6 +12,7 @@ using UnityEngine.UI;
 public class Node : MonoBehaviour
 {
     new Renderer renderer;
+    new public Rigidbody rigidbody;
 
     //Identifier that determines the created block
     public string blockName = "";
@@ -28,7 +29,6 @@ public class Node : MonoBehaviour
 
     float minimumHeight;
     public bool gravity = false;
-    Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +69,11 @@ public class Node : MonoBehaviour
 
     }
 
+    public virtual void changeInput() { }
+    public virtual void changeValType() { }
+    public virtual void prevVal() { }
+    public virtual void nextVal() { }
+
     public virtual void setDrag(bool dragged)
     {
         isDragged = dragged;
@@ -102,7 +107,8 @@ public class Node : MonoBehaviour
     {
         if(enter)
         {
-            gravity = false;
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
             transform.parent = newParent;
         }
         else
@@ -110,7 +116,8 @@ public class Node : MonoBehaviour
             if (prev) destroyLine(prev);
             if (next) destroyLine(next);
             if (intern) destroyLine(intern);
-            gravity = true;
+            rigidbody.isKinematic = false;
+            rigidbody.useGravity = true;
             transform.parent = transform.parent.parent;
         }
     }

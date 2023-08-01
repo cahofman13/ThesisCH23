@@ -83,7 +83,7 @@ public class CalcNode : Node
         foreach (CalcDisplay calcDisplay in calcDisplays) calcDisplay.activeBg[(int)inputState].SetActive(dragged);
     }
 
-    private void prevVal()
+    public override void prevVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -155,7 +155,7 @@ public class CalcNode : Node
         }
     }
 
-    private void nextVal()
+    public override void nextVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -265,7 +265,7 @@ public class CalcNode : Node
         }
     }
 
-    private void changeInput()
+    public override void changeInput()
     {
         foreach (CalcDisplay calcDisplay in calcDisplays) calcDisplay.activeBg[(int)inputState].SetActive(false);
         inputState = inputState == InputState.VAL1 ? InputState.OP : 
@@ -275,7 +275,7 @@ public class CalcNode : Node
         updateVarNames();
     }
 
-    private void changeValType()
+    public override void changeValType()
     {
         if (inputState == InputState.TARG || inputState == InputState.OP) return;
         else if (inputState == InputState.VAL1)

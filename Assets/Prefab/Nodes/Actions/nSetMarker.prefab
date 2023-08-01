@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7509422606008743764, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7509422606008743765, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
       propertyPath: blockName
       value: SetMarker

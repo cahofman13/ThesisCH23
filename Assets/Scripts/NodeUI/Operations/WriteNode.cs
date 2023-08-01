@@ -87,7 +87,7 @@ public class WriteNode : Node
         }
     }
 
-    private void prevVal()
+    public override void prevVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -123,7 +123,7 @@ public class WriteNode : Node
         }
     }
 
-    private void nextVal()
+    public override void nextVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -199,7 +199,7 @@ public class WriteNode : Node
         }
     }
 
-    private void changeInput()
+    public override void changeInput()
     {
         foreach (WriteDisplay writeDisplay in writeDisplays) writeDisplay.activeBg[(int)inputState].SetActive(false);
         inputState = inputState == InputState.VAL1 ? InputState.TARG : InputState.VAL1;
@@ -207,7 +207,7 @@ public class WriteNode : Node
         updateVarNames();
     }
 
-    private void changeValType()
+    public override void changeValType()
     {
         if (inputState != InputState.VAL1) return;
         if (v1Type == InputType.NUM)

@@ -20,8 +20,8 @@ public class MarkerNode : Node
     internal override void exUpdate()
     {
         base.exUpdate();
-        if (isDragged && Input.GetKeyDown(KeyCode.Q)) prevColor();
-        if (isDragged && Input.GetKeyDown(KeyCode.E)) nextColor();
+        if (isDragged && Input.GetKeyDown(KeyCode.Q)) prevVal();
+        if (isDragged && Input.GetKeyDown(KeyCode.E)) nextVal();
     }
 
     public override void setDrag(bool dragged)
@@ -35,14 +35,14 @@ public class MarkerNode : Node
         return colorNames[colorIndex];
     }
 
-    private void prevColor() 
+    public override void prevVal() 
     {
         if (colorIndex > 0) colorIndex--;
         else colorIndex = colors.Length - 1;
         foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.image.color = colors[colorIndex];
     }
 
-    private void nextColor()
+    public override void nextVal()
     {
         if (colorIndex < colors.Length - 1) colorIndex++;
         else colorIndex = 0;

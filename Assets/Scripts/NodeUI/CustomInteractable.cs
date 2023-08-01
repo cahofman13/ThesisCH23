@@ -11,10 +11,20 @@ public class CustomInteractable : XRSimpleInteractable
     PositionConstraint positionConstraint;
     RotationConstraint rotationConstraint;
 
+    Coroutine velCoroutine;
+    Vector3 releaseVelocity;
+    Queue<Vector3> oldPos;
+
     protected void Start()
     {
         if (this.TryGetComponent(out Node n)) node = n;
         else Destroy(this);
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        StopAllCoroutines();
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs call)
@@ -23,8 +33,8 @@ public class CustomInteractable : XRSimpleInteractable
 
         //new LeftRight
         if (call.interactorObject.transform.name.StartsWith("Left"))
-            ControlsManager.instance.leftHandNodes.Add(node);
-        else ControlsManager.instance.rightHandNodes.Add(node);
+            ControlsManager.instance.addNode(node, true);
+        else ControlsManager.instance.addNode(node, false);
 
         //old Drag Actions
         Debug.Log("startDrag");
@@ -43,6 +53,8 @@ public class CustomInteractable : XRSimpleInteractable
         rotationConstraint.constraintActive = true;
         rotationConstraint.AddSource(source);
         rotationConstraint.weight = 1;
+
+        velCoroutine = StartCoroutine(trackVelocity());
     }
 
     protected override void OnSelectExited(SelectExitEventArgs call)
@@ -51,14 +63,35 @@ public class CustomInteractable : XRSimpleInteractable
 
         //new LeftRight
         if (call.interactorObject.transform.name.StartsWith("Left"))
-            ControlsManager.instance.leftHandNodes.Remove(node);
-        else ControlsManager.instance.rightHandNodes.Remove(node);
+            ControlsManager.instance.remNode(node, true);
+        else ControlsManager.instance.remNode(node, false);
 
         //old Drag Actions
         Destroy(positionConstraint);
+        Destroy(rotationConstraint);
         node.setDrag(false);
         if (transform.position.y < transform.lossyScale.y / 2) transform.position =
             new Vector3(transform.position.x, transform.lossyScale.y / 2, transform.position.z);
+        node.rigidbody.velocity = Vector3.zero;
+        node.rigidbody.AddForce(releaseVelocity * 6, ForceMode.VelocityChange);
+        StopCoroutine(velCoroutine);
+    }
+
+    IEnumerator trackVelocity() 
+    {
+        releaseVelocity = Vector3.zero;
+        oldPos = new Queue<Vector3>();
+        oldPos.Enqueue(transform.position);
+        oldPos.Enqueue(transform.position);
+        oldPos.Enqueue(transform.position);
+        oldPos.Enqueue(transform.position);
+        oldPos.Enqueue(transform.position);
+        while (true)
+        {
+            yield return new WaitForSeconds(0.02f);
+            releaseVelocity = transform.position - oldPos.Dequeue();
+            oldPos.Enqueue(transform.position);
+        }
     }
 
 }

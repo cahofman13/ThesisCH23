@@ -69,7 +69,7 @@ public class IfNode : Node
         foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(dragged);
     }
 
-    private void prevVal()
+    public override void prevVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -117,7 +117,7 @@ public class IfNode : Node
         }
     }
 
-    private void nextVal()
+    public override void nextVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -204,7 +204,7 @@ public class IfNode : Node
         }
     }
 
-    private void changeInput()
+    public override void changeInput()
     {
         foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(false);
         inputState = inputState == InputState.VAL1 ? InputState.COMP : (inputState == InputState.COMP ? InputState.VAL2 : InputState.VAL1);
@@ -212,7 +212,7 @@ public class IfNode : Node
         if(inputState != InputState.COMP) updateVarNames();
     }
 
-    private void changeValType()
+    public override void changeValType()
     {
         if (inputState != InputState.VAL2) return;
         if (v2Type == InputType.NUM)
