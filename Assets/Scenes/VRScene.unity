@@ -4681,7 +4681,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336385572
 GameObject:
@@ -11184,7 +11184,7 @@ PrefabInstance:
       objectReference: {fileID: 1838087820}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12411,7 +12411,9 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -4979465393416445466, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   leftSecondaryValue: 0
+  oldLeftSecondaryValue: 0
   rightSecondaryValue: 0
+  oldRightSecondaryValue: 0
   secondaryValue: 0
   leftStick:
     m_UseReference: 1
@@ -12441,6 +12443,7 @@ MonoBehaviour:
   oldLeftStickValue: {x: 0, y: 0}
   rightStickValue: {x: 0, y: 0}
   oldRightStickValue: {x: 0, y: 0}
+  dragLinePrefab: {fileID: 6988885409118554928, guid: 445abee62b25bd747ae8e8d001804910, type: 3}
   actionBasedSnapTurnProvider: {fileID: 1193241350}
   actionBasedContinuousMoveProvider: {fileID: 1193241352}
 --- !u!4 &885114954
@@ -13965,7 +13968,7 @@ PrefabInstance:
       objectReference: {fileID: 1838087820}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15569,7 +15572,7 @@ PrefabInstance:
       objectReference: {fileID: 1838087820}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18501,7 +18504,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1272795788
 PrefabInstance:
@@ -23640,7 +23643,7 @@ Transform:
   - {fileID: 1143553710}
   - {fileID: 410251689}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1655466383 stripped
 GameObject:
@@ -25855,7 +25858,7 @@ Transform:
   - {fileID: 694597850}
   - {fileID: 266328034}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1795699172
 PrefabInstance:
@@ -27051,7 +27054,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectActionTrigger: 0
   m_HideControllerOnSelect: 0
-  m_AllowHoveredActivate: 0
+  m_AllowHoveredActivate: 1
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 0
   m_AudioClipForOnSelectEntered: {fileID: 0}
@@ -27099,17 +27102,17 @@ MonoBehaviour:
   m_ControlPointDistance: 10
   m_ControlPointHeight: 5
   m_SampleFrequency: 20
-  m_HitDetectionType: 0
+  m_HitDetectionType: 1
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
-  m_HitClosestOnly: 0
+  m_HitClosestOnly: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
   m_EnableUIInteraction: 1
-  m_AllowAnchorControl: 1
+  m_AllowAnchorControl: 0
   m_UseForceGrab: 1
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
@@ -31153,7 +31156,7 @@ PrefabInstance:
       objectReference: {fileID: 1838087820}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 740460655144834022, guid: d52ebe5e7ecb9284e987eac9e18718ce, type: 3}
       propertyPath: m_LocalPosition.x

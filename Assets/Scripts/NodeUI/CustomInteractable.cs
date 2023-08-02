@@ -27,6 +27,11 @@ public class CustomInteractable : XRSimpleInteractable
         StopAllCoroutines();
     }
 
+    protected override void OnActivated(ActivateEventArgs args)
+    {
+        ControlsManager.instance.startLineDrag(args);
+    }
+
     protected override void OnSelectEntered(SelectEnterEventArgs call)
     {
         base.OnSelectEntered(call);

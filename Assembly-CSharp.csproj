@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\UI\BlockUI.cs" />
     <Compile Include="Assets\Scripts\NodeUI\Controls\ForNode.cs" />
     <Compile Include="Assets\Scripts\Routine\Operation.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\CustomInteractable.cs" />
     <Compile Include="Assets\Scripts\NodeUI\SideContent\ConditionDisplay.cs" />
     <Compile Include="Assets\Scripts\Routine\Block.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputIf.cs" />
@@ -117,7 +118,7 @@
     <Compile Include="Assets\Scripts\Routine\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routine\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\CustomInteractable.cs" />
+    <Compile Include="Assets\Scripts\DragLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

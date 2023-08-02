@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using TreeEditor;
+using Unity.AI.Navigation.Samples;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -50,8 +55,10 @@ public class ControlsManager : MonoBehaviour
 
     [SerializeField] InputActionProperty leftSecondaryBtn;
     [SerializeField] InputActionProperty rightSecondaryBtn;
-    [HideInInspector] public float leftSecondaryValue;
-    [HideInInspector] public float rightSecondaryValue;
+    [HideInInspector] public float leftSecondaryValue = 0;
+    [HideInInspector] public float oldLeftSecondaryValue;
+    [HideInInspector] public float rightSecondaryValue = 0;
+    [HideInInspector] public float oldRightSecondaryValue;
     [HideInInspector] public float secondaryValue;
 
     [SerializeField] InputActionProperty leftStick;
@@ -64,6 +71,10 @@ public class ControlsManager : MonoBehaviour
 
     List<Node> leftHandNodes = new List<Node>();
     List<Node> rightHandNodes = new List<Node>();
+
+    public GameObject dragLinePrefab;
+    DragLine leftLine = null;
+    DragLine rightLine = null;
 
     [SerializeField] ActionBasedSnapTurnProvider actionBasedSnapTurnProvider;
     [SerializeField] ActionBasedContinuousMoveProvider actionBasedContinuousMoveProvider ;
@@ -79,6 +90,23 @@ public class ControlsManager : MonoBehaviour
         else { rightHandNodes.Remove(n); if (rightHandNodes.Count <= 0) actionBasedSnapTurnProvider.enabled = true; }
     }
 
+    public void startLineDrag(ActivateEventArgs call)
+    {
+        DragLine dragLine = Instantiate(dragLinePrefab, call.interactableObject.transform.parent).GetComponent<DragLine>();
+        dragLine.Init(call);
+
+        if (call.interactorObject.transform.name.StartsWith("Left")) 
+            leftLine = dragLine;
+        else rightLine = dragLine;
+
+    }
+    public void endLineDrag(bool left)
+    {
+        if (left) leftLine.End();
+        else rightLine.End();
+    }
+
+    // PRIVATE UPDATES AND FUNCTIONS --------------------------------------------------------------------------------------------
     private void Update()
     {
         //Read Inputs -----------------------------------------------------
@@ -98,7 +126,9 @@ public class ControlsManager : MonoBehaviour
         rightPrimaryValue = rightPrimaryBtn.action.ReadValue<float>();
         primaryValue = Mathf.Max(leftPrimaryValue, rightPrimaryValue);
 
+        oldLeftSecondaryValue = leftSecondaryValue;
         leftSecondaryValue = leftSecondaryBtn.action.ReadValue<float>();
+        oldRightSecondaryValue = rightSecondaryValue;
         rightSecondaryValue = rightSecondaryBtn.action.ReadValue<float>();
         secondaryValue = Mathf.Max(leftSecondaryValue, rightSecondaryValue);
 
@@ -119,6 +149,16 @@ public class ControlsManager : MonoBehaviour
             rightTriggerDown();
         }
         //--
+        if (leftTriggerValue <= 0.9f && oldLeftTriggerValue > 0.9f)
+        {
+            leftTriggerUp();
+        }
+        //--
+        if (rightTriggerValue <= 0.9f && oldRightTriggerValue > 0.9f)
+        {
+            rightTriggerUp();
+        }
+        //--
         if (leftPrimaryValue > 0.9f && oldLeftPrimaryValue <= 0.9f)
         {
             leftPrimaryDown();
@@ -127,6 +167,16 @@ public class ControlsManager : MonoBehaviour
         if (rightPrimaryValue > 0.9f && oldRightPrimaryValue <= 0.9f)
         {
             rightPrimaryDown();
+        }
+        //--
+        if (leftSecondaryValue > 0.9f && oldLeftSecondaryValue <= 0.9f)
+        {
+            leftSecondaryDown();
+        }
+        //--
+        if (rightSecondaryValue > 0.9f && oldRightSecondaryValue <= 0.9f)
+        {
+            rightSecondaryDown();
         }
         //--
         if (rightStickValue.x > 0.9f && oldRightStickValue.x <= 0.9f)
@@ -158,14 +208,39 @@ public class ControlsManager : MonoBehaviour
     {
         foreach (Node node in rightHandNodes) node.changeInput();
     }
+    private void leftTriggerUp()
+    {
+        if(leftLine) endLineDrag(true);
+    }
+    private void rightTriggerUp()
+    {
+        if (rightLine) endLineDrag(false);
+    }
 
     private void leftPrimaryDown()
     {
         foreach (Node node in leftHandNodes) node.changeValType();
+        if (leftLine) leftLine.Toggle();
     }
     private void rightPrimaryDown()
     {
         foreach (Node node in rightHandNodes) node.changeValType();
+        if (rightLine) rightLine.Toggle();
+    }
+
+    private void leftSecondaryDown()
+    {
+        foreach (Node node in leftHandNodes) cloneNode(node); //??
+        if (leftLine) leftLine.Erase();
+    }
+    private void rightSecondaryDown()
+    {
+        foreach (Node node in rightHandNodes) cloneNode(node); //??
+        if (rightLine) rightLine.Erase();
+    }
+    private void cloneNode(Node node)
+    {
+        //??
     }
 
     private void leftStickToRight()
