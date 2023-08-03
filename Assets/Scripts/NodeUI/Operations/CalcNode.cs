@@ -54,6 +54,46 @@ public class CalcNode : Node
         DIV
     }
 
+    public override void resetAfterClone()
+    {
+        base.resetAfterClone();
+        v1Key = 0; v1Num = 3;
+        v2Key = 0; v2Num = 3;
+        targKey = 3;
+        inputState = InputState.VAL1;
+        v1Type = InputType.NUM;
+        v2Type = InputType.NUM;
+        opType = OpType.ADD; 
+        routine = null;
+        varNames = null;
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?!
+        }
+        catch (NullReferenceException e) { Debug.LogWarning(e.Message); }
+        updateVarNames();
+        //Toggle to auto-sync
+        //1
+        nextVal(); prevVal();
+        changeValType();
+        nextVal(); prevVal();
+        changeValType();
+        changeInput();
+        //2
+        nextVal(); prevVal();
+        changeInput();
+        //3
+        nextVal(); prevVal();
+        changeValType();
+        nextVal(); prevVal();
+        changeValType();
+        changeInput();
+        //4
+        nextVal(); prevVal();
+        changeInput();
+    }
+
     internal override void exStart()
     {
         base.exStart();
@@ -80,7 +120,15 @@ public class CalcNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (CalcDisplay calcDisplay in calcDisplays) calcDisplay.activeBg[(int)inputState].SetActive(dragged);
+        try
+        {
+            foreach (CalcDisplay calcDisplay in calcDisplays) calcDisplay.activeBg[(int)inputState].SetActive(dragged);
+        }
+        catch (NullReferenceException)
+        {
+            calcDisplays = this.GetComponentsInChildren<CalcDisplay>();
+            foreach (CalcDisplay calcDisplay in calcDisplays) foreach (GameObject bg in calcDisplay.activeBg) bg.SetActive(dragged);
+        }
     }
 
     public override void prevVal()

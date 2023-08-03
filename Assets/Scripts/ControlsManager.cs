@@ -33,8 +33,10 @@ public class ControlsManager : MonoBehaviour
     #region Inputs
     [SerializeField] InputActionProperty leftGripBtn;
     [SerializeField] InputActionProperty rightGripBtn;
-    [HideInInspector] public float leftGripValue;
-    [HideInInspector] public float rightGripValue;
+    [HideInInspector] public float oldLeftGripValue;
+    [HideInInspector] public float leftGripValue = 0;
+    [HideInInspector] public float oldRightGripValue;
+    [HideInInspector] public float rightGripValue = 0;
     [HideInInspector] public float GripValue;
 
     [SerializeField] InputActionProperty leftTriggerBtn;
@@ -76,6 +78,9 @@ public class ControlsManager : MonoBehaviour
     DragLine leftLine = null;
     DragLine rightLine = null;
 
+    public GameObject leftDroneHover = null;
+    public GameObject rightDroneHover = null;
+
     [SerializeField] ActionBasedSnapTurnProvider actionBasedSnapTurnProvider;
     [SerializeField] ActionBasedContinuousMoveProvider actionBasedContinuousMoveProvider ;
 
@@ -89,9 +94,18 @@ public class ControlsManager : MonoBehaviour
         if (left) { leftHandNodes.Remove(n); if(leftHandNodes.Count <= 0) actionBasedContinuousMoveProvider.enabled = true; }
         else { rightHandNodes.Remove(n); if (rightHandNodes.Count <= 0) actionBasedSnapTurnProvider.enabled = true; }
     }
+    public List<Node> getNodes(bool left)
+    {
+        if (left) return leftHandNodes;
+        else return rightHandNodes;
+    }
 
     public void startLineDrag(ActivateEventArgs call)
     {
+        if (call.interactorObject.transform.name.StartsWith("Left"))
+        { if (leftHandNodes.Count > 0) return; }
+        else { if (rightHandNodes.Count > 0) return; }
+
         DragLine dragLine = Instantiate(dragLinePrefab, call.interactableObject.transform.parent).GetComponent<DragLine>();
         dragLine.Init(call);
 
@@ -110,7 +124,9 @@ public class ControlsManager : MonoBehaviour
     private void Update()
     {
         //Read Inputs -----------------------------------------------------
+        oldLeftGripValue = leftGripValue;
         leftGripValue = leftGripBtn.action.ReadValue<float>();
+        oldRightGripValue = rightGripValue;
         rightGripValue = rightGripBtn.action.ReadValue<float>();
         GripValue = Mathf.Max(leftGripValue, rightGripValue);
 
@@ -159,6 +175,16 @@ public class ControlsManager : MonoBehaviour
             rightTriggerUp();
         }
         //--
+        if (leftGripValue > 0.9f && oldLeftGripValue <= 0.9f)
+        {
+            leftGripDown();
+        }
+        //--
+        if (rightGripValue > 0.9f && oldRightGripValue <= 0.9f)
+        {
+            rightGripDown();
+        }
+        //--
         if (leftPrimaryValue > 0.9f && oldLeftPrimaryValue <= 0.9f)
         {
             leftPrimaryDown();
@@ -203,10 +229,12 @@ public class ControlsManager : MonoBehaviour
     private void leftTriggerDown() 
     {
         foreach (Node node in leftHandNodes) node.changeInput();
+        if (leftDroneHover) leftDroneHover.GetComponent<DroneCommand>().toggleHUD();
     }
     private void rightTriggerDown()
     {
         foreach (Node node in rightHandNodes) node.changeInput();
+        if (rightDroneHover) rightDroneHover.GetComponent<DroneCommand>().toggleHUD();
     }
     private void leftTriggerUp()
     {
@@ -217,30 +245,41 @@ public class ControlsManager : MonoBehaviour
         if (rightLine) endLineDrag(false);
     }
 
+    private void leftGripDown()
+    {
+        if (leftDroneHover) leftDroneHover.GetComponent<DroneCommand>().pauseRoutineToggle();
+        if (leftLine) leftLine.Toggle();
+    }
+    private void rightGripDown()
+    {
+        if (rightDroneHover) rightDroneHover.GetComponent<DroneCommand>().pauseRoutineToggle();
+        if (rightLine) rightLine.Toggle();
+    }
+
     private void leftPrimaryDown()
     {
         foreach (Node node in leftHandNodes) node.changeValType();
-        if (leftLine) leftLine.Toggle();
+        if (leftLine) leftLine.Erase();
+        else if (leftDroneHover) leftDroneHover.GetComponent<DroneCommand>().readProcess(true);
     }
     private void rightPrimaryDown()
     {
         foreach (Node node in rightHandNodes) node.changeValType();
-        if (rightLine) rightLine.Toggle();
+        if (rightLine) rightLine.Erase();
+        else if (rightDroneHover) rightDroneHover.GetComponent<DroneCommand>().readProcess(true);
     }
 
     private void leftSecondaryDown()
     {
         foreach (Node node in leftHandNodes) cloneNode(node); //??
-        if (leftLine) leftLine.Erase();
     }
     private void rightSecondaryDown()
     {
         foreach (Node node in rightHandNodes) cloneNode(node); //??
-        if (rightLine) rightLine.Erase();
     }
     private void cloneNode(Node node)
     {
-        //??
+        node.Clone();
     }
 
     private void leftStickToRight()

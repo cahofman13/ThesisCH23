@@ -69,6 +69,24 @@ public class Node : MonoBehaviour
 
     }
 
+    public void Clone()
+    {
+        GameObject copy = Instantiate(this.gameObject, transform.position, transform.rotation, transform.parent);
+        copy.GetComponent<CustomInteractable>().forceSelectExit();
+        if (next) next.start = copy;
+        if (intern) intern.start = copy;
+        if (prev) prev.end = copy;
+        resetAfterClone();
+    }
+
+    public virtual void resetAfterClone() 
+    {
+        if(isControl) setControlInactive();
+        else setActionInactive();
+        prev = null; next = null;
+        intern = null;
+    }
+
     public virtual void changeInput() { }
     public virtual void changeValType() { }
     public virtual void prevVal() { }

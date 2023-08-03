@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class MarkerNode : Node
 {
@@ -27,7 +29,15 @@ public class MarkerNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.activeBg.SetActive(dragged);
+        try
+        {
+            foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.activeBg.SetActive(dragged);
+        }
+        catch (NullReferenceException)
+        {
+            colorDisplays = this.GetComponentsInChildren<ColorDisplay>();
+            foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.activeBg.SetActive(dragged);
+        }
     }
 
     public string getColorName()

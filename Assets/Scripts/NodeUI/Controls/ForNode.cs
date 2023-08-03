@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class ForNode : Node
 {
@@ -30,7 +32,15 @@ public class ForNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.activeBg.SetActive(dragged);
+        try
+        {
+            foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.activeBg.SetActive(dragged);
+        }
+        catch (NullReferenceException)
+        {
+            numberDisplays = this.GetComponentsInChildren<NumberDisplay>();
+            foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.activeBg.SetActive(dragged);
+        }
     }
 
     public override void prevVal()

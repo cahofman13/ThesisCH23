@@ -35,6 +35,40 @@ public class IfNode : Node
         NUM
     }
 
+    public override void resetAfterClone()
+    {
+        base.resetAfterClone();
+        condition = new Condition();
+        v1Key = 0;
+        v2Key = 0;
+        v2Num = 3;
+        inputState = InputState.VAL1;
+        v2Type = InputType.NUM;
+        routine = null;
+        varNames = null;
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?!
+        }
+        catch (NullReferenceException e) { Debug.LogWarning(e.Message); }
+        updateVarNames();
+        condition.setComp(Comp.GREATER, "posX", null, null, 3f);
+        //Toggle to auto-sync
+        //1
+        nextVal(); prevVal();
+        changeInput();
+        //2
+        nextVal(); prevVal();
+        changeInput();
+        //3
+        nextVal(); prevVal();
+        changeValType();
+        nextVal(); prevVal();
+        changeValType();
+        changeInput();
+    }
+
     internal override void exStart()
     {
         base.exStart();
@@ -66,7 +100,14 @@ public class IfNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(dragged);
+        try
+        {
+            foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(dragged);
+        } catch (NullReferenceException)
+        {
+            conditionDisplays = this.GetComponentsInChildren<ConditionDisplay>();
+            foreach (ConditionDisplay conditionDisplay in conditionDisplays) foreach (GameObject bg in conditionDisplay.activeBg) bg.SetActive(dragged);
+        }
     }
 
     public override void prevVal()

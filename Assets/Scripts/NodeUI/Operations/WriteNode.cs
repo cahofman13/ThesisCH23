@@ -39,6 +39,35 @@ public class WriteNode : Node
         NUM
     }
 
+    public override void resetAfterClone()
+    {
+        base.resetAfterClone();
+        v1Key = 0;
+        v1Num = 3;
+        targKey = 3;
+        inputState = InputState.VAL1;
+        v1Type = InputType.NUM;
+        routine = null;
+        varNames = null;
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?!
+        }
+        catch (NullReferenceException e) { Debug.LogWarning(e.Message); }
+        updateVarNames();
+        //Toggle to auto-sync
+        //1
+        nextVal(); prevVal();
+        changeValType();
+        nextVal(); prevVal();
+        changeValType();
+        changeInput();
+        //2
+        nextVal(); prevVal();
+        changeInput();
+    }
+
     internal override void exStart()
     {
         base.exStart();
@@ -69,7 +98,15 @@ public class WriteNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (WriteDisplay writeDisplay in writeDisplays) writeDisplay.activeBg[(int)inputState].SetActive(dragged);
+        try
+        {
+            foreach (WriteDisplay writeDisplay in writeDisplays) writeDisplay.activeBg[(int)inputState].SetActive(dragged);
+        }
+        catch (NullReferenceException)
+        {
+            writeDisplays = this.GetComponentsInChildren<WriteDisplay>();
+            foreach (WriteDisplay writeDisplay in writeDisplays) foreach(GameObject bg in writeDisplay.activeBg) bg.SetActive(dragged);
+        }
     }
 
     public override void setNodeHUD(bool enter, Transform newParent)

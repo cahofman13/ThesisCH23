@@ -47,8 +47,7 @@ public class SpawnerCommand : MonoBehaviour
     {
         spawnedNode = null;
         yield return new WaitForSeconds(0.5f);
-        spawnedNode = Instantiate(spawnPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity, transform.parent);
-        spawnedNode.GetComponent<Node>().gravity = true;
+        spawnedNode = Instantiate(spawnPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 
 }

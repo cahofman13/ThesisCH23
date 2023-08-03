@@ -62,6 +62,15 @@ public class CustomInteractable : XRSimpleInteractable
         velCoroutine = StartCoroutine(trackVelocity());
     }
 
+    public void forceSelectExit()
+    {
+        node = this.GetComponent<Node>();
+        Destroy(this.GetComponent<PositionConstraint>());
+        Destroy(this.GetComponent<RotationConstraint>());
+        node.setDrag(false);
+        node.rigidbody.velocity = Vector3.zero;
+    }
+
     protected override void OnSelectExited(SelectExitEventArgs call)
     {
         base.OnSelectExited(call);

@@ -307,6 +307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 345383257}
     m_Modifications:
+    - target: {fileID: 4952305203311639748, guid: ef59af9942c3eb94db350619a4b1628a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509422606008743754, guid: ef59af9942c3eb94db350619a4b1628a, type: 3}
       propertyPath: m_Name
       value: nCalc
@@ -581,6 +585,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -1452,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 106
@@ -1711,6 +1723,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -2021,6 +2037,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -2803,6 +2823,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 345383257}
     m_Modifications:
+    - target: {fileID: 1868545062008043668, guid: e4abae5cce3dd914c9a4aec8f345fe33, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509422606008743754, guid: e4abae5cce3dd914c9a4aec8f345fe33, type: 3}
       propertyPath: m_Name
       value: nWrite
@@ -4695,7 +4719,7 @@ GameObject:
   - component: {fileID: 336385576}
   - component: {fileID: 336385575}
   - component: {fileID: 336385574}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7324,17 +7348,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: 2f5d0b166157a2f4791a1ba902160b94, type: 3}
-      propertyPath: next
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: 2f5d0b166157a2f4791a1ba902160b94, type: 3}
-      propertyPath: prev
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5170358348045146552, guid: 2f5d0b166157a2f4791a1ba902160b94, type: 3}
       propertyPath: m_Name
       value: nTurnRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739198987629231172, guid: 2f5d0b166157a2f4791a1ba902160b94, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f5d0b166157a2f4791a1ba902160b94, type: 3}
@@ -7987,6 +8007,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -9089,17 +9113,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: b82a8fe9ea66fad42b5264568bd29ff6, type: 3}
-      propertyPath: next
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: b82a8fe9ea66fad42b5264568bd29ff6, type: 3}
-      propertyPath: prev
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5170358348045146552, guid: b82a8fe9ea66fad42b5264568bd29ff6, type: 3}
       propertyPath: m_Name
       value: nGrab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739198987629231172, guid: b82a8fe9ea66fad42b5264568bd29ff6, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b82a8fe9ea66fad42b5264568bd29ff6, type: 3}
@@ -9115,7 +9135,7 @@ GameObject:
   - component: {fileID: 676447229}
   - component: {fileID: 676447228}
   - component: {fileID: 676447227}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9710,6 +9730,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -10500,6 +10524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 78
@@ -10887,6 +10915,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 102
@@ -11017,6 +11049,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -11891,6 +11927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -12325,7 +12365,9 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  oldLeftGripValue: 0
   leftGripValue: 0
+  oldRightGripValue: 0
   rightGripValue: 0
   GripValue: 0
   leftTriggerBtn:
@@ -12444,6 +12486,8 @@ MonoBehaviour:
   rightStickValue: {x: 0, y: 0}
   oldRightStickValue: {x: 0, y: 0}
   dragLinePrefab: {fileID: 6988885409118554928, guid: 445abee62b25bd747ae8e8d001804910, type: 3}
+  leftDroneHover: {fileID: 0}
+  rightDroneHover: {fileID: 0}
   actionBasedSnapTurnProvider: {fileID: 1193241350}
   actionBasedContinuousMoveProvider: {fileID: 1193241352}
 --- !u!4 &885114954
@@ -13000,6 +13044,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -14530,6 +14578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 80
@@ -14910,6 +14962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -15288,6 +15344,7 @@ Transform:
   m_Children:
   - {fileID: 1590975654}
   - {fileID: 1149381407}
+  - {fileID: 1065267357}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15382,6 +15439,60 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1065267356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065267357}
+  - component: {fileID: 1065267359}
+  - component: {fileID: 1065267358}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1065267357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065267356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 14, y: 1, z: 14}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1064831108}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1065267358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065267356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1065267359
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065267356}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1069249233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
@@ -16197,6 +16308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 345383257}
     m_Modifications:
+    - target: {fileID: 6770907222798347736, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509422606008743754, guid: 4905c3cacbce7694ea591139335f9984, type: 3}
       propertyPath: m_Name
       value: nFlyTo
@@ -17306,6 +17421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -17724,6 +17843,7 @@ GameObject:
   - component: {fileID: 1200233944}
   - component: {fileID: 1200233943}
   - component: {fileID: 1200233942}
+  - component: {fileID: 1200233946}
   m_Layer: 10
   m_Name: Start
   m_TagString: Untagged
@@ -17829,6 +17949,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200233940}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1200233946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200233940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f49bbdacfa23264cbb0c7086bd57b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 547555916}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1210694742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17946,13 +18147,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: d47f32fdd15104f4182d7cb175255a59, type: 3}
-      propertyPath: prev
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5170358348045146552, guid: d47f32fdd15104f4182d7cb175255a59, type: 3}
       propertyPath: m_Name
       value: nRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739198987629231172, guid: d47f32fdd15104f4182d7cb175255a59, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d47f32fdd15104f4182d7cb175255a59, type: 3}
@@ -18100,6 +18301,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 345383257}
     m_Modifications:
+    - target: {fileID: 6045329651405617836, guid: a36c8ccb1541c66409789a8cc5b5d941, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509422606008743754, guid: a36c8ccb1541c66409789a8cc5b5d941, type: 3}
       propertyPath: m_Name
       value: nFor
@@ -18393,6 +18598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -18587,6 +18796,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -18984,7 +19197,7 @@ GameObject:
   - component: {fileID: 1317176226}
   - component: {fileID: 1317176225}
   - component: {fileID: 1317176224}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19715,6 +19928,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -20723,6 +20940,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 345383257}
     m_Modifications:
+    - target: {fileID: 1794802904625949624, guid: 916f6562f99427b43a883d95c3d6e1b6, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509422606008743754, guid: 916f6562f99427b43a883d95c3d6e1b6, type: 3}
       propertyPath: m_Name
       value: nIf
@@ -21194,6 +21415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -21298,6 +21523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1507958411}
   - component: {fileID: 1507958410}
+  - component: {fileID: 1507958412}
   m_Layer: 0
   m_Name: MaterialManager
   m_TagString: Untagged
@@ -21339,6 +21565,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1507958412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507958409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2ce81d3fb8ad645a788d54280456c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pMoveForward: {fileID: 5170358348045146552, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
 --- !u!1001 &1509152847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23149,6 +23388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -23210,6 +23453,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -24292,6 +24539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -24551,6 +24802,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -25150,6 +25405,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -25867,6 +26126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 345383257}
     m_Modifications:
+    - target: {fileID: 2085700112138610303, guid: 7c7ec079c1c1a70459b2a2122f317ffe, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2967917369864125677, guid: 7c7ec079c1c1a70459b2a2122f317ffe, type: 3}
       propertyPath: m_Name
       value: nSetMarker
@@ -25972,41 +26235,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
-      propertyPath: next
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
-      propertyPath: prev
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5170358348045146552, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
       propertyPath: m_Name
       value: nMoveForward (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7739198987629231172, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
---- !u!1 &1799012010 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5170358348045146552, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
-  m_PrefabInstance: {fileID: 1799012009}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1799012012
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799012010}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1802950872
 GameObject:
   m_ObjectHideFlags: 0
@@ -26454,6 +26692,9 @@ GameObject:
   - component: {fileID: 1838087823}
   - component: {fileID: 1838087822}
   - component: {fileID: 1838087821}
+  - component: {fileID: 1838087826}
+  - component: {fileID: 1838087825}
+  - component: {fileID: 1838087824}
   m_Layer: 0
   m_Name: Drone1
   m_TagString: Untagged
@@ -26474,6 +26715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droneInterface: {fileID: 345383258}
+  audioSimplePress: {fileID: 1838087825}
+  audioConfirmProcess: {fileID: 1838087824}
 --- !u!114 &1838087822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26503,6 +26746,279 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1838087824
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838087820}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e59d90b73775614498298c985ed5272d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.17
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1838087825
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838087820}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4b51d089d222c7c439479ed64f97a741, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1838087826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838087820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df0b0fae110a18498a4f2ddf06aa535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 547555916}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1852357275
 GameObject:
   m_ObjectHideFlags: 0
@@ -28116,6 +28632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 84
@@ -28517,17 +29037,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: a37734635277ded48af644c42539d38b, type: 3}
-      propertyPath: next
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5170358348045146535, guid: a37734635277ded48af644c42539d38b, type: 3}
-      propertyPath: prev
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5170358348045146552, guid: a37734635277ded48af644c42539d38b, type: 3}
       propertyPath: m_Name
       value: nTurnLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739198987629231172, guid: a37734635277ded48af644c42539d38b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37734635277ded48af644c42539d38b, type: 3}
@@ -28590,6 +29106,10 @@ PrefabInstance:
     - target: {fileID: 133967481445134780, guid: 739e95613cf639441a2ffc084e821584, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144000299822771541, guid: 739e95613cf639441a2ffc084e821584, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 739e95613cf639441a2ffc084e821584, type: 3}
@@ -28803,7 +29323,7 @@ GameObject:
   - component: {fileID: 2017199700}
   - component: {fileID: 2017199699}
   - component: {fileID: 2017199698}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29080,6 +29600,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
@@ -29915,6 +30439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeSegmentTurned (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder
       value: 100
@@ -30600,6 +31128,10 @@ PrefabInstance:
     - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_Name
       value: MazeSegmentTurned (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 93795082205290153, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4033614203385216342, guid: 25230a369dee3cc47af7b31c4c4f973b, type: 3}
       propertyPath: m_RootOrder

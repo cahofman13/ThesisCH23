@@ -7,9 +7,9 @@ public class ResetButton : Button
     public GameObject drone;
     public Transform resetPosition;
 
-    internal override void activation()
+    protected override void activate()
     {
-        base.activation();
+        base.activate();
         StartCoroutine(resetDrone());
     }
 
@@ -17,7 +17,7 @@ public class ResetButton : Button
     {
         DroneCommand droneCommand = drone.GetComponent<DroneCommand>();
         droneCommand.pauseRoutine(true);
-        droneCommand.readProcess();
+        droneCommand.readProcess(false);
         droneCommand.tryDeactivateHUD();
         droneCommand.enabled = false;
         yield return new WaitForSeconds(2);
