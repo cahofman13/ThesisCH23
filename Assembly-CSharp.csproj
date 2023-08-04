@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\NodeUI\CustomInteractable.cs" />
     <Compile Include="Assets\Scripts\NodeUI\SideContent\ConditionDisplay.cs" />
     <Compile Include="Assets\Scripts\Routine\Block.cs" />
+    <Compile Include="Assets\ButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputIf.cs" />
     <Compile Include="Assets\Scripts\NodeUI\Controls\IfNode.cs" />
     <Compile Include="Assets\Scripts\NodeUI\Operations\CalcNode.cs" />
@@ -76,6 +77,8 @@
     <Compile Include="Assets\Scripts\NodeUI\Action\MarkerNode.cs" />
     <Compile Include="Assets\Scripts\Routine\Actions\MoveForward.cs" />
     <Compile Include="Assets\Scripts\NodeUI\Operations\WriteNode.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\DroneInteractable.cs" />
+    <Compile Include="Assets\Scripts\NodeUI\StartInteractable.cs" />
     <Compile Include="Assets\Scripts\Routine\Ops\Term.cs" />
     <Compile Include="Assets\Scripts\Environment\ResetButton.cs" />
     <Compile Include="Assets\Scripts\NodeUI\SideContent\CalcDisplay.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Assets\Scripts\Routine\Actions\Release.cs" />
     <Compile Include="Assets\Scripts\Environment\SpawnerCommand.cs" />
     <Compile Include="Assets\Scripts\ControlsManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\PrefabManager.cs" />
     <Compile Include="Assets\Scripts\Environment\Spawner.cs" />
     <Compile Include="Assets\Scripts\NodeUI\Connection.cs" />
     <Compile Include="Assets\Scripts\DroneCommand.cs" />
@@ -119,10 +123,6 @@
     <Compile Include="Assets\Scripts\Routine\Controls\WhileBlock.cs" />
     <Compile Include="Assets\Scripts\Routine\Actions\Grab.cs" />
     <Compile Include="Assets\Scripts\UI\InputBlocks\InputCalc.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\StartInteractable.cs" />
-    <Compile Include="Assets\Scripts\NodeUI\DroneInteractable.cs" />
-    <Compile Include="Assets\ButtonInteractable.cs" />
-    <Compile Include="Assets\Scripts\Manager\PrefabManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

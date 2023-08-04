@@ -10,6 +10,7 @@ public class DroneCommand : MonoBehaviour
     [SerializeField] DroneInterface droneInterface;
     [SerializeField] AudioSource audioSimplePress;
     [SerializeField] AudioSource audioConfirmProcess;
+    [SerializeField] Renderer lampRenderer;
 
     bool hudInProgress = false;
 
@@ -37,11 +38,15 @@ public class DroneCommand : MonoBehaviour
     {
         routine.paused = paused;
         audioSimplePress.Play();
+        if (routine.paused) lampRenderer.material = MaterialManager.instance.Red;
+        else lampRenderer.material = MaterialManager.instance.Green;
     }
     public void pauseRoutineToggle()
     {
         routine.paused = !routine.paused;
         audioSimplePress.Play();
+        if (routine.paused) lampRenderer.material = MaterialManager.instance.Red;
+        else lampRenderer.material = MaterialManager.instance.Green;
     }
 
     public void readProcess(bool unpause)
