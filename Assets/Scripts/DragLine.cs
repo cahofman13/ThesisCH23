@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
 using Unity.AI.Navigation.Samples;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 

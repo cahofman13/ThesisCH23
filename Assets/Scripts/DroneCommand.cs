@@ -54,7 +54,7 @@ public class DroneCommand : MonoBehaviour
         if (!routine.paused) return;
         routine.setProcess(droneInterface.getProcess());
         audioConfirmProcess.Play();
-        if(unpause) routine.paused = false;
+        if (unpause) { routine.paused = false; lampRenderer.material = MaterialManager.instance.Green; }
     }
 
     public void toggleHUD()
