@@ -7,17 +7,20 @@ public class ResetButton : Button
     public GameObject drone;
     public Transform resetPosition;
 
-    internal override void activation()
+    private static bool resetInProgress = false;
+
+    protected override void activate()
     {
-        base.activation();
-        StartCoroutine(resetDrone());
+        base.activate();
+        if(!resetInProgress) StartCoroutine(resetDrone());
     }
 
     IEnumerator resetDrone()
     {
+        resetInProgress = true;
         DroneCommand droneCommand = drone.GetComponent<DroneCommand>();
         droneCommand.pauseRoutine(true);
-        droneCommand.readProcess();
+        droneCommand.readProcess(false);
         droneCommand.tryDeactivateHUD();
         droneCommand.enabled = false;
         yield return new WaitForSeconds(2);
@@ -28,6 +31,7 @@ public class ResetButton : Button
         yield return new WaitForSeconds(2);
         droneCommand.enabled = true;
         droneCommand.tryActivateHUD();
+        resetInProgress = false;
     }
 
 }

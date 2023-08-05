@@ -1,17 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using TreeEditor;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
     new Renderer renderer;
+    new public Rigidbody rigidbody;
 
     //Identifier that determines the created block
     public string blockName = "";
@@ -40,6 +32,7 @@ public class Node : MonoBehaviour
     {
         minimumHeight = transform.lossyScale.y/2;
         renderer = this.GetComponent<Renderer>();
+        rigidbody = this.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -66,6 +59,29 @@ public class Node : MonoBehaviour
         }
 
     }
+
+    public void Clone()
+    {
+        GameObject copy = Instantiate(this.gameObject, transform.position, transform.rotation, transform.parent);
+        copy.GetComponent<CustomInteractable>().forceSelectExit();
+        if (next) next.start = copy;
+        if (intern) intern.start = copy;
+        if (prev) prev.end = copy;
+        resetAfterClone();
+    }
+
+    public virtual void resetAfterClone() 
+    {
+        if(isControl) setControlInactive();
+        else setActionInactive();
+        prev = null; next = null;
+        intern = null;
+    }
+
+    public virtual void changeInput() { }
+    public virtual void changeValType() { }
+    public virtual void prevVal() { }
+    public virtual void nextVal() { }
 
     public virtual void setDrag(bool dragged)
     {
@@ -100,7 +116,8 @@ public class Node : MonoBehaviour
     {
         if(enter)
         {
-            gravity = false;
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
             transform.parent = newParent;
         }
         else
@@ -108,7 +125,8 @@ public class Node : MonoBehaviour
             if (prev) destroyLine(prev);
             if (next) destroyLine(next);
             if (intern) destroyLine(intern);
-            gravity = true;
+            rigidbody.isKinematic = false;
+            rigidbody.useGravity = true;
             transform.parent = transform.parent.parent;
         }
     }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class ForNode : Node
 {
@@ -18,8 +20,8 @@ public class ForNode : Node
     internal override void exUpdate()
     {
         base.exUpdate();
-        if (isDragged && Input.GetKeyDown(KeyCode.Q)) { prevNr(); StartCoroutine(delayedHold(KeyCode.Q)); }
-        if (isDragged && Input.GetKeyDown(KeyCode.E)) { nextNr(); StartCoroutine(delayedHold(KeyCode.E)); }
+        if (isDragged && Input.GetKeyDown(KeyCode.Q)) { prevVal(); StartCoroutine(delayedHold(KeyCode.Q)); }
+        if (isDragged && Input.GetKeyDown(KeyCode.E)) { nextVal(); StartCoroutine(delayedHold(KeyCode.E)); }
     }
 
     private void OnDestroy()
@@ -30,16 +32,24 @@ public class ForNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.activeBg.SetActive(dragged);
+        try
+        {
+            foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.activeBg.SetActive(dragged);
+        }
+        catch (NullReferenceException)
+        {
+            numberDisplays = this.GetComponentsInChildren<NumberDisplay>();
+            foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.activeBg.SetActive(dragged);
+        }
     }
 
-    private void prevNr()
+    public override void prevVal()
     {
         if (repeatNr > 0) repeatNr--;
         foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.text.text = repeatNr.ToString();
     }
 
-    private void nextNr()
+    public override void nextVal()
     {
         if (repeatNr < 999) repeatNr++;
         foreach (NumberDisplay numberDisplay in numberDisplays) numberDisplay.text.text = repeatNr.ToString();
@@ -58,8 +68,8 @@ public class ForNode : Node
         {
             if (Input.GetKey(keyCode))
             {
-                if (keyCode == KeyCode.Q) prevNr();
-                else nextNr();
+                if (keyCode == KeyCode.Q) prevVal();
+                else nextVal();
             }
             else break;
             yield return new WaitForSeconds(0.05f);

@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class MarkerNode : Node
 {
@@ -20,14 +22,22 @@ public class MarkerNode : Node
     internal override void exUpdate()
     {
         base.exUpdate();
-        if (isDragged && Input.GetKeyDown(KeyCode.Q)) prevColor();
-        if (isDragged && Input.GetKeyDown(KeyCode.E)) nextColor();
+        if (isDragged && Input.GetKeyDown(KeyCode.Q)) prevVal();
+        if (isDragged && Input.GetKeyDown(KeyCode.E)) nextVal();
     }
 
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.activeBg.SetActive(dragged);
+        try
+        {
+            foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.activeBg.SetActive(dragged);
+        }
+        catch (NullReferenceException)
+        {
+            colorDisplays = this.GetComponentsInChildren<ColorDisplay>();
+            foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.activeBg.SetActive(dragged);
+        }
     }
 
     public string getColorName()
@@ -35,14 +45,14 @@ public class MarkerNode : Node
         return colorNames[colorIndex];
     }
 
-    private void prevColor() 
+    public override void prevVal() 
     {
         if (colorIndex > 0) colorIndex--;
         else colorIndex = colors.Length - 1;
         foreach (ColorDisplay colorDisplay in colorDisplays) colorDisplay.image.color = colors[colorIndex];
     }
 
-    private void nextColor()
+    public override void nextVal()
     {
         if (colorIndex < colors.Length - 1) colorIndex++;
         else colorIndex = 0;

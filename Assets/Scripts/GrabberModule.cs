@@ -74,11 +74,11 @@ public class GrabberModule : MonoBehaviour
 
     IEnumerator GrabCoroutine()
     {
-        for(int i = 0; i < 1750; i++)
+        for(int i = 0; i < 580; i++)
         {
             yield return null;
             transform.localRotation = Quaternion.Euler(
-                transform.localEulerAngles.x - 0.05f, 
+                transform.localEulerAngles.x - 0.15f, 
                 transform.localEulerAngles.y, 
                 transform.localEulerAngles.z);
         }
@@ -87,11 +87,11 @@ public class GrabberModule : MonoBehaviour
 
     IEnumerator ReleaseCoroutine()
     {
-        for (int i = 0; i < 1750; i++)
+        for (int i = 0; i < 580; i++)
         {
             yield return null;
             transform.localRotation = Quaternion.Euler(
-                transform.localEulerAngles.x + 0.05f,
+                transform.localEulerAngles.x + 0.15f,
                 transform.localEulerAngles.y,
                 transform.localEulerAngles.z);
         }

@@ -8,6 +8,11 @@ public class DroneCommand : MonoBehaviour
 {
     Routine routine;
     [SerializeField] DroneInterface droneInterface;
+    [SerializeField] AudioSource audioSimplePress;
+    [SerializeField] AudioSource audioConfirmProcess;
+    [SerializeField] Renderer lampRenderer;
+
+    bool hudInProgress = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +24,9 @@ public class DroneCommand : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T)) resetScene();
-        if (Input.GetKeyDown(KeyCode.C)) routine.paused = !routine.paused;
+        if (Input.GetKeyDown(KeyCode.C)) pauseRoutineToggle();
         if (Input.GetKeyDown(KeyCode.X)) toggleHUD();
-        if (Input.GetKeyDown(KeyCode.V)) readProcess();
+        if (Input.GetKeyDown(KeyCode.V)) readProcess(true);
     }
 
     public void resetScene()
@@ -32,17 +37,33 @@ public class DroneCommand : MonoBehaviour
     public void pauseRoutine(bool paused)
     {
         routine.paused = paused;
+        audioSimplePress.Play();
+        if (routine.paused) lampRenderer.material = MaterialManager.instance.Red;
+        else lampRenderer.material = MaterialManager.instance.Green;
+    }
+    public void pauseRoutineToggle()
+    {
+        routine.paused = !routine.paused;
+        audioSimplePress.Play();
+        if (routine.paused) lampRenderer.material = MaterialManager.instance.Red;
+        else lampRenderer.material = MaterialManager.instance.Green;
     }
 
-    public void readProcess()
+    public void readProcess(bool unpause)
     {
+        if (!routine.paused) return;
         routine.setProcess(droneInterface.getProcess());
+        audioConfirmProcess.Play();
+        if (unpause) { routine.paused = false; lampRenderer.material = MaterialManager.instance.Green; }
     }
 
-    private void toggleHUD()
+    public void toggleHUD()
     {
+        if (hudInProgress) return;
         if (droneInterface.gameObject.activeSelf) StartCoroutine(deactivateHUD());
         else StartCoroutine(activateHUD());
+
+        audioSimplePress.Play();
     }
 
     public void tryDeactivateHUD()
@@ -57,23 +78,37 @@ public class DroneCommand : MonoBehaviour
 
     private IEnumerator activateHUD()
     {
+        hudInProgress = true;
         droneInterface.gameObject.SetActive(true);
         for (int i = 0; i < 50; i++)
         {
             yield return null;
             droneInterface.transform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
         }
-        if (FreeCam.instance.draggedObject && FreeCam.instance.draggedObject.TryGetComponent(out Node node))
+        if (FreeCam.instance && FreeCam.instance.draggedObject && FreeCam.instance.draggedObject.TryGetComponent(out Node node))
             node.setNodeHUD(true, droneInterface.transform);
+        else if (ControlsManager.instance)
+        {
+            foreach (Node n in ControlsManager.instance.getNodes(false)) n.setNodeHUD(true, droneInterface.transform);
+            foreach (Node n in ControlsManager.instance.getNodes(true)) n.setNodeHUD(true, droneInterface.transform);
+        }
+
         droneInterface.interfaceCollider.enable();
+        hudInProgress = false;
     }
 
 
     private IEnumerator deactivateHUD()
     {
+        hudInProgress = true;
         droneInterface.interfaceCollider.disable();
-        if (FreeCam.instance.draggedObject && FreeCam.instance.draggedObject.TryGetComponent(out Node node)) 
+        if (FreeCam.instance && FreeCam.instance.draggedObject && FreeCam.instance.draggedObject.TryGetComponent(out Node node)) 
             node.setNodeHUD(false, null);
+        else if (ControlsManager.instance)
+        {
+            foreach (Node n in ControlsManager.instance.getNodes(false)) n.setNodeHUD(false, null);
+            foreach (Node n in ControlsManager.instance.getNodes(true)) n.setNodeHUD(false, null);
+        }
 
         for (int i = 0; i < 50; i++)
         {
@@ -81,5 +116,6 @@ public class DroneCommand : MonoBehaviour
             droneInterface.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
         }
         droneInterface.gameObject.SetActive(false);
+        hudInProgress = false;
     }
 }

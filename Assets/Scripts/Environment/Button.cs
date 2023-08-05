@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    AudioSource audioSource;
+
+    protected virtual void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnDestroy()
     {
@@ -13,9 +19,10 @@ public class Button : MonoBehaviour
     public void press()
     {
         StartCoroutine(pressAnimation());
+        if (audioSource != null) audioSource.Play();
     }
 
-    internal virtual void activation()
+    protected virtual void activate()
     {
 
     }
@@ -27,7 +34,7 @@ public class Button : MonoBehaviour
             transform.position += new Vector3(0, -0.002f, 0);
             yield return null;
         }
-        activation();
+        activate();
         for (int i = 25; i > 0; i--)
         { //target 0.05f
             transform.position += new Vector3(0, 0.002f, 0);

@@ -5,6 +5,11 @@ using UnityEngine;
 public class MaterialManager : MonoBehaviour
 {
     public static MaterialManager instance;
+
+    public Material Red;
+    public Material Blue;
+    public Material Green;
+
     public Material mNodeActionInactive;
     public Material mNodeActionActive;
     public Material mNodeActionInvalid;

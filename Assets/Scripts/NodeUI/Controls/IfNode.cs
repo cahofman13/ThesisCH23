@@ -1,10 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
-using UnityEngine.UI;
 
 public class IfNode : Node
 {
@@ -34,14 +32,51 @@ public class IfNode : Node
         NUM
     }
 
+    public override void resetAfterClone()
+    {
+        base.resetAfterClone();
+        condition = new Condition();
+        v1Key = 0;
+        v2Key = 0;
+        v2Num = 3;
+        inputState = InputState.VAL1;
+        v2Type = InputType.NUM;
+        routine = null;
+        varNames = null;
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?!
+        }
+        catch (NullReferenceException e) { Debug.LogWarning(e.Message); }
+        updateVarNames();
+        condition.setComp(Comp.GREATER, "posX", null, null, 3f);
+        //Toggle to auto-sync
+        //1
+        nextVal(); prevVal();
+        changeInput();
+        //2
+        nextVal(); prevVal();
+        changeInput();
+        //3
+        nextVal(); prevVal();
+        changeValType();
+        nextVal(); prevVal();
+        changeValType();
+        changeInput();
+    }
+
     internal override void exStart()
     {
         base.exStart();
         isControl = true;
         conditionDisplays = this.GetComponentsInChildren<ConditionDisplay>();
-        routine = this.GetComponentInParent<DroneInterface>().gameObject
-            .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?
-        updateVarNames();
+        try
+        {
+            routine = this.GetComponentInParent<DroneInterface>().gameObject
+                .GetComponent<PositionConstraint>().GetSource(0).sourceTransform.GetComponent<Routine>(); //rework Storage?!
+        } catch (NullReferenceException e) { Debug.LogWarning(e.Message); }
+            updateVarNames();
         condition.setComp(Comp.GREATER, "posX", null, null, 3f);
     }
 
@@ -62,10 +97,17 @@ public class IfNode : Node
     public override void setDrag(bool dragged)
     {
         base.setDrag(dragged);
-        foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(dragged);
+        try
+        {
+            foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(dragged);
+        } catch (NullReferenceException)
+        {
+            conditionDisplays = this.GetComponentsInChildren<ConditionDisplay>();
+            foreach (ConditionDisplay conditionDisplay in conditionDisplays) foreach (GameObject bg in conditionDisplay.activeBg) bg.SetActive(dragged);
+        }
     }
 
-    private void prevVal()
+    public override void prevVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -113,7 +155,7 @@ public class IfNode : Node
         }
     }
 
-    private void nextVal()
+    public override void nextVal()
     {
         switch (inputState)
         { //rework Storage?
@@ -200,7 +242,7 @@ public class IfNode : Node
         }
     }
 
-    private void changeInput()
+    public override void changeInput()
     {
         foreach (ConditionDisplay conditionDisplay in conditionDisplays) conditionDisplay.activeBg[(int)inputState].SetActive(false);
         inputState = inputState == InputState.VAL1 ? InputState.COMP : (inputState == InputState.COMP ? InputState.VAL2 : InputState.VAL1);
@@ -208,7 +250,7 @@ public class IfNode : Node
         if(inputState != InputState.COMP) updateVarNames();
     }
 
-    private void changeValType()
+    public override void changeValType()
     {
         if (inputState != InputState.VAL2) return;
         if (v2Type == InputType.NUM)
