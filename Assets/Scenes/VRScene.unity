@@ -186,7 +186,7 @@ MonoBehaviour:
     can attach with a blue Line.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -275,7 +275,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50590ea6552ee6f4ca737083cb26b93c, type: 2}
+  - {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2130,7 +2130,7 @@ MonoBehaviour:
     right will get you to the first platform of the starter maze.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2219,7 +2219,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50590ea6552ee6f4ca737083cb26b93c, type: 2}
+  - {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9177,6 +9177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3718710301136550705, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
+    - {fileID: 7739198987629231172, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
 --- !u!1 &467691403 stripped
 GameObject:
@@ -21195,7 +21196,7 @@ MonoBehaviour:
   m_text: Complex Blocks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21284,7 +21285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50590ea6552ee6f4ca737083cb26b93c, type: 2}
+  - {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28560,6 +28561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3718710301136550705, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
+    - {fileID: 7739198987629231172, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e874b6f791a2b8d41b5517bad527266b, type: 3}
 --- !u!4 &1387528017 stripped
 Transform:
@@ -34267,7 +34269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.236, y: -1.016}
+  m_AnchoredPosition: {x: -1.232, y: -1.016}
   m_SizeDelta: {x: 65.78, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631415229
@@ -34293,7 +34295,7 @@ MonoBehaviour:
   m_text: Programming 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34382,7 +34384,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50590ea6552ee6f4ca737083cb26b93c, type: 2}
+  - {fileID: 2100000, guid: 89511ffd6e92b194292545817c36a4f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39283,6 +39285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3718710301136550705, guid: a37734635277ded48af644c42539d38b, type: 3}
+    - {fileID: 7739198987629231172, guid: a37734635277ded48af644c42539d38b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a37734635277ded48af644c42539d38b, type: 3}
 --- !u!4 &1857103163 stripped
 Transform:
