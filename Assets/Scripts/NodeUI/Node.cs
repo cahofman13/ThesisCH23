@@ -63,7 +63,7 @@ public class Node : MonoBehaviour
     public void Clone()
     {
         GameObject copy = Instantiate(this.gameObject, transform.position, transform.rotation, transform.parent);
-        copy.GetComponent<CustomInteractable>().forceSelectExit();
+        copy.GetComponent<NodeInteractable>().forceSelectExit();
         if (next) next.start = copy;
         if (intern) intern.start = copy;
         if (prev) prev.end = copy;

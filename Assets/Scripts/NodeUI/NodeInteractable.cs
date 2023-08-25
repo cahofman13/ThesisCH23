@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class CustomInteractable : XRSimpleInteractable
+public class NodeInteractable : XRSimpleInteractable
 {
     Node node;
     PositionConstraint positionConstraint;
