@@ -253,15 +253,13 @@ public class ControlsManager : MonoBehaviour
 
     private void leftPrimaryDown()
     {
-        foreach (Node node in leftHandNodes) node.changeValType();
+        foreach (Node node in leftHandNodes) { node.changeValType(); node.transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true; }
         if (leftLine) leftLine.Erase();
-        else if (leftDroneHover) leftDroneHover.GetComponent<DroneCommand>().readProcess(true);
     }
     private void rightPrimaryDown()
     {
-        foreach (Node node in rightHandNodes) node.changeValType();
+        foreach (Node node in rightHandNodes) { node.changeValType(); node.transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true; }
         if (rightLine) rightLine.Erase();
-        else if (rightDroneHover) rightDroneHover.GetComponent<DroneCommand>().readProcess(true);
     }
 
     private void leftSecondaryDown()
@@ -279,22 +277,22 @@ public class ControlsManager : MonoBehaviour
 
     private void leftStickToRight()
     {
-        foreach (Node node in leftHandNodes) node.nextVal();
+        foreach (Node node in leftHandNodes) { node.nextVal(); node.transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true; }
         StartCoroutine(delayedHoldStickLeftX());
     }
     private void leftStickToLeft()
     {
-        foreach (Node node in leftHandNodes) node.prevVal();
+        foreach (Node node in leftHandNodes) { node.prevVal(); node.transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true; }
         StartCoroutine(delayedHoldStickLeftX());
     }
     private void rightStickToRight()
     {
-        foreach (Node node in rightHandNodes) node.nextVal();
+        foreach (Node node in rightHandNodes) { node.nextVal(); node.transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true; }
         StartCoroutine(delayedHoldStickRightX());
     }
     private void rightStickToLeft()
     {
-        foreach (Node node in rightHandNodes) node.prevVal();
+        foreach (Node node in rightHandNodes) { node.prevVal(); node.transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true; }
         StartCoroutine(delayedHoldStickRightX());
     }
 

@@ -3,6 +3,7 @@ using UnityEngine;
 public class DroneInterface : MonoBehaviour
 {
     [SerializeField] Node start;
+    [SerializeField] public DroneCommand droneCommand;
     [SerializeField] public InterfaceCollider interfaceCollider;
 
     public Process getProcess()
