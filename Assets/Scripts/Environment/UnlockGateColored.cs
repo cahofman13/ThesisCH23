@@ -28,7 +28,7 @@ public class UnlockGateColored : ColorPlate
         running = true;
         while(gate.transform.localPosition.y > -0.9)
         {
-            gate.transform.position += new Vector3(0, -0.005f, 0);
+            gate.transform.position += new Vector3(0, -0.015f, 0);
             yield return null;
         }
         gate.GetComponent<Collider>().enabled = false;
@@ -40,7 +40,7 @@ public class UnlockGateColored : ColorPlate
         running = true;
         while (gate.transform.localPosition.y < 0)
         {
-            gate.transform.position += new Vector3(0, 0.005f, 0);
+            gate.transform.position += new Vector3(0, 0.015f, 0);
             yield return null;
         }
         gate.GetComponent<Collider>().enabled = true;

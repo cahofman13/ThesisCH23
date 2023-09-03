@@ -14,6 +14,8 @@ public class DroneCommand : MonoBehaviour
 
     bool hudInProgress = false;
 
+    public bool programChanged = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,19 +41,26 @@ public class DroneCommand : MonoBehaviour
         routine.paused = paused;
         audioSimplePress.Play();
         if (routine.paused) lampRenderer.material = MaterialManager.instance.Red;
-        else lampRenderer.material = MaterialManager.instance.Green;
+        else
+        {
+            if (programChanged) readProcess(true);
+            else lampRenderer.material = MaterialManager.instance.Green;
+        }
     }
     public void pauseRoutineToggle()
     {
         routine.paused = !routine.paused;
         audioSimplePress.Play();
         if (routine.paused) lampRenderer.material = MaterialManager.instance.Red;
-        else lampRenderer.material = MaterialManager.instance.Green;
+        else
+        {
+            if(programChanged) readProcess(true);
+            else lampRenderer.material = MaterialManager.instance.Green;
+        }
     }
 
     public void readProcess(bool unpause)
     {
-        if (!routine.paused) return;
         routine.setProcess(droneInterface.getProcess());
         audioConfirmProcess.Play();
         if (unpause) { routine.paused = false; lampRenderer.material = MaterialManager.instance.Green; }

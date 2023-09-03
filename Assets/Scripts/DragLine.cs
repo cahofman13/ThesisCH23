@@ -119,6 +119,7 @@ public class DragLine : MonoBehaviour
                         destroyLine(target, LineState.PREV);
                         lineNode.next = line;
                         target.prev = line;
+                        transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true;
                         break;
 
 
@@ -131,6 +132,7 @@ public class DragLine : MonoBehaviour
                         destroyLine(target, LineState.NEXT);
                         lineNode.prev = line;
                         target.next = line;
+                        transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true;
                         break;
 
 
@@ -143,6 +145,7 @@ public class DragLine : MonoBehaviour
                         destroyLine(target, LineState.PREV);
                         lineNode.intern = line;
                         target.prev = line;
+                        transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true;
                         break;
                 }
             }
@@ -179,6 +182,7 @@ public class DragLine : MonoBehaviour
                 Connection connection = lineNode.next;
                 lineNode.next = null;
                 connection.end.GetComponent<Node>().prev = null;
+                transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true;
                 Destroy(connection.gameObject);
             }
         }
@@ -191,6 +195,7 @@ public class DragLine : MonoBehaviour
                 Node targetNode = connection.start.GetComponent<Node>();
                 if (targetNode.next == connection) targetNode.next = null;
                 if (targetNode.intern == connection) targetNode.intern = null;
+                transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true;
                 Destroy(connection.gameObject);
             }
         }
@@ -201,6 +206,7 @@ public class DragLine : MonoBehaviour
                 Connection connection = lineNode.intern;
                 lineNode.intern = null;
                 connection.end.GetComponent<Node>().prev = null;
+                transform.parent.GetComponent<DroneInterface>().droneCommand.programChanged = true;
                 Destroy(connection.gameObject);
             }
         }
