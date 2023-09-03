@@ -53,8 +53,8 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
 *.unitypackage
+ThesisCH23build_BackUpThisFolder_ButDontShipItWithYourGame/
 
 # Crashlytics generated file
 crashlytics-build.properties
